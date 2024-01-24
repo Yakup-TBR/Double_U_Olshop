@@ -1,10 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-body{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body,
+input{
     background-color: #D45179;
-    font-family: Poppins;
+    font-family: "Poppins", sans-serif;
+    height: 100%;
+    width: 100%;
 }
 
+/* navbar start */
 navbar{
     background-color: #F4E5E5;
 }
@@ -51,7 +61,71 @@ navbar{
     font-weight: 400;
     line-height: normal
 }
+/* navbar end, isi start*/
 
+#filter{
+    background-color: greenyellow;
+    max-width: 15%;
+}
+
+#katalog{
+    
+}
+
+/* isi end, footer start*/
 footer{
     background-color: #F4E5E5;
+    position: static;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 20px;
 }
+
+footer #logo{
+    font-size: 13px;
+}
+
+footer p{
+    font-size: 10px;
+}
+
+footer h5{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+footer #logo img{
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+#follow{
+    max-width: 28%;
+    padding-top: 17px;
+}
+
+#instagram, #tokopedia, #shopee, #tiktok{
+    text-decoration: none;
+    color:black;
+    font-size: 15px;
+}
+
+#instagram i{
+    padding-right: 7px;
+}
+
+#shopee svg{
+    margin-right: 2px;
+}
+
+#about{
+    padding-top: 17px;
+}
+
+
+
+
+
