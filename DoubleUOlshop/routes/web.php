@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Katalog | Tarik data semua produk
+Route::get('/', [Katalog::class, 'index'])->name('katalog');
 
-//Searching Produk
+
+// Searching Produk
 Route::get('/cariProduk', [Katalog::class, 'index'])->name('cariProduk');

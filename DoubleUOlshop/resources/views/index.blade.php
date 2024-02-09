@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
     <navbar class="navbar sticky-top">
@@ -39,12 +40,115 @@
     <section>
 
         <div class="row">
-            <div class="container col" id="filter">
-asdasdas
+            <div class="container col border-end" id="filter">
+                
+                <ul class="list-unstyled" id="perhiasan">
+                    <h5>Perhiasan</h5>
+                    <li class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Kalung" name="Kalung" value="Kalung">
+                        <label class="form-check-label" for="Kalung">Kalung</label>
+                    </li>
+                    <li class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Liontin" name="Liontin" value="Liontin">
+                        <label class="form-check-label" for="Liontin">Liontin</label>
+                    </li>
+                    <li class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Gelang" name="Gelang" value="Gelang">
+                        <label class="form-check-label" for="Gelang">Gelang</label>
+                    </li>
+                    <li class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Cincin" name="Cincin" value="Cincin">
+                        <label class="form-check-label" for="Cincin">Cincin</label>
+                    </li>
+                    <li class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Anting" name="Anting" value="Anting">
+                        <label class="form-check-label" for="Anting">Anting</label>
+                    </li>
+                </ul>
+
+                <ul class="list-unstyled" id="fashion">
+                    <h5>Produk Fashion</h5>
+                    <li class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Jam" name="Jam" value="Jam">
+                        <label class="form-check-label" for="Jam">Jam Fashion</label>
+                    </li>
+                    <li class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Gelang_Fashion" name="Gelang_Fashion" value="Gelang_Fashion">
+                        <label class="form-check-label" for="Gelang_Fashion">Gelang Fashion</label>
+                    </li>
+                    <li class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Kuku_Palsu" name="Kuku_Palsu" value="Kuku_Palsu">
+                        <label class="form-check-label" for="Kuku_Palsu">Kuku Palsu</label>
+                    </li>
+                </ul>
+
+                <ul class="list-unstyled" id="material">
+                    <h5>Produk Fashion</h5>
+                    <li class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Alloy" name="Alloy" value="Alloy">
+                        <label class="form-check-label" for="Alloy">Alloy</label>
+                    </li>
+                    <li class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Alloy_Rhodium" name="Alloy_Rhodium" value="Alloy_Rhodium">
+                        <label class="form-check-label" for="Alloy_Rhodium">Alloy Rhodium</label>
+                    </li>
+                    <li class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Stainless_Steal" name="Stainless_Steal" value="Stainless_Steal">
+                        <label class="form-check-label" for="Stainless_Steal">Stainless Steal</label>
+                    </li>
+                    <li class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Silver" name="Silver" value="Silver">
+                        <label class="form-check-label" for="Silver">Silver</label>
+                    </li>
+                    <li class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Plastic" name="Plastic" value="Plastic">
+                        <label class="form-check-label" for="Plastic">Plastic</label>
+                    </li>
+                    <li class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Sintetic" name="Sintetic" value="Sintetic">
+                        <label class="form-check-label" for="Sintetic">Sintetic</label>
+                    </li>
+                </ul>
+
+                <ul class="list-unstyled" id="harga">
+                    <h5>Kisaran Harga</h5>
+                    <div class="price-input row">
+                        <div class="field" id="min">
+                            <span>Min</span>
+                            <input type="number" class="input-min" value="2500">
+                        </div>
+                        <div class="separator">-</div>
+                        <div class="field" id="max">
+                            <span>Max</span>
+                            <input type="number" class="input-max" value="7500">
+                        </div>
+                        <div class="slider">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="range-input">
+                            <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
+                            <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+                        </div>
+                    </div>
+                </ul>
             </div>
 
             <div class="container col" id="katalog">
-asdasd
+                <div class="row row-cols-md-5 g-1">
+                    @foreach($produk as $data)  
+                    <form action="/updateData/{{ $data->id }}" method="get">
+                        <div class="card" style="width: 14rem;">
+                            <img src="{{ asset('uploads/' . $data->gambar_1) }}" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title text-center" data-href="{{ route('katalog', ['id' => $data->id]) }}" onclick="handleCardClick(this)">{{ $data->name}}</h5>
+                                <h6 class="card-text1 text-center" data-harga="{{ $data->harga }}" data-href="{{ route('katalog', ['id' => $data->id]) }}" onclick="handleCardClick(this)">Harga : Rp. {{ $data->harga }}</h6>
+                                <p id="jarak-{{ $data->id }}" class="card-text2" data-href="{{ route('katalog', ['id' => $data->id]) }}" onclick="handleCardClick(this)">{{ $data->deskripsi_pendek}}</p>
+                            </div>
+                        </div>
+                    </form>
+                    @endforeach
+                </div>
+                
             </div>
         </div>
         
@@ -119,5 +223,6 @@ asdasd
             </div>
         </div>
     </footer>
+    <script src="{{ asset('js/index.js') }}"></script>
 </body>
 </html>
