@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('produk', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('harga');
+            $table->integer('harga');
             $table->string('deskripsi_pendek');
             $table->string('deskripsi_panjang');
             $table->enum('tipe',['kalung','liontin', 'gelang', 'cincin','anting', 'jam_fashion', 'gelang_fashion', 'kuku'])->default('kalung');

@@ -1,0 +1,55 @@
+/* isi end, footer start*/
+footer {
+    background-color: #f4e5e5;
+    position: static;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 20px;
+}
+
+footer #logo {
+    font-size: 13px;
+}
+
+footer p {
+    font-size: 10px;
+}
+
+footer h5 {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+footer #logo img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+#follow {
+    max-width: 28%;
+    padding-top: 17px;
+}
+
+#instagram,
+#tokopedia,
+#shopee,
+#tiktok {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+#instagram i {
+    padding-right: 7px;
+}
+
+#shopee svg {
+    margin-right: 2px;
+}
+
+#about {
+    padding-top: 17px;
+}
