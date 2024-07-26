@@ -30,6 +30,9 @@ Route::post('/produk', [CrudController::class, 'store'])->name('produk.store');
 // CRUD | Edit Page produk
 Route::get('/edit/{id}', [CrudController::class, 'editPage'])->name('produk.edit');
 
+// CRUD | Edit Modal Produk
+Route::get('/editModal/{id}', [CrudController::class, 'editModal'])->name('produk.editModal');
+
 // CRUD | Hapus Produk di detail
 Route::get('/deleteDetail/{id}', [CrudController::class, 'deleteDetail'])->name('produk.deleteDetail');
 

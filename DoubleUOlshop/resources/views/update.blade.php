@@ -51,7 +51,7 @@
                 </thead>
                 <tbody>
                     @foreach($produk as $data)
-                    <tr>
+                    <tr class="clickable-row" data-href="{{ route('produk.edit', $data['id']) }}">
                         <td class="checknya">
                             <input class="form-check-input" type="checkbox" id="produk" name="produk" value="produk">
                             <label class="form-check-label" for="produk"></label>
@@ -225,6 +225,20 @@
 
             document.getElementById('confirmDeleteButton').addEventListener('click', function() {
                 document.getElementById('hapusForm').submit();
+            });
+        });
+
+        // Agar tiap row bisa di klik
+        document.addEventListener('DOMContentLoaded', function() {
+            const rows = document.querySelectorAll('.clickable-row');
+            rows.forEach(row => {
+                row.addEventListener('click', function(event) {
+                    const target = event.target;
+                    // Pastikan klik tidak berasal dari checkbox atau tombol aksi
+                    if (!target.closest('.form-check-input') && !target.closest('.btn')) {
+                        window.location.href = this.dataset.href;
+                    }
+                });
             });
         });
     </script>
