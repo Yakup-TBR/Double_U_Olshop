@@ -1,30 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-  
+
 body,
-input{
-    background-color: #F4E5E5;
+input {
+    background-color: #f4e5e5;
     font-family: "Poppins", sans-serif;
     height: 100%;
     width: 100%;
 }
 
 /* navbar start */
-navbar{
+navbar {
     background-color: #dcd4d6;
-    
-} 
+}
 
-#logo{
+#logo {
     flex-shrink: 0;
-} 
+}
 
-#logo h1{
+#logo h1 {
     color: #000;
     font-family: Poppins;
     font-size: 27px;
@@ -33,45 +32,59 @@ navbar{
     line-height: normal;
 }
 
-#logo img{
+#logo img {
     width: 100px;
     height: auto;
     margin-bottom: 10px;
     flex-shrink: 0;
 }
 
-#cariProduk{
-    text-align: center;
+#searchContainer {
     width: 40%;
-    flex-shrink: 0;
-}
-
-#search{
-    border-radius: 10px;
-    background: #FFF;
+    height: 40px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    
+    border-radius: 10px;
+    background: #fff;
 }
 
-#menu a{
-    color: #1F1C1C;
+#searchContainer .form-control {
+    padding-left: 20px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+#searchContainer .form-control::placeholder {
+    color: #9e9a9a;
+}
+
+#searchInput:active,
+#searchInput:focus {
+    outline: none;
+}
+
+#menu a {
+    color: #1f1c1c;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Poppins;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal
+    line-height: normal;
 }
 /* navbar end, isi start*/
 
-tr img{
+tr img {
     height: 10vh;
 }
 
-.table td{
+.table td {
     background-color: #eae7e7;
 }
 
-.table .checknya{
+.table .checknya {
     padding-left: 20px;
+}
+
+.id-hidden{
+    display: none;
 }

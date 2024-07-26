@@ -17,7 +17,7 @@
 
                 <div class="col" id="logo">
                     <img src="{{ asset('img/logo_juli_jewelry.png') }}" alt="Logo KosTel">
-                    <a class="navbar-brand" href="#">DOUBLE U OLSHOP</a>
+                    <a class="navbar-brand pe-4" href="#">DOUBLE U OLSHOP</a>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
                 </div>
 
