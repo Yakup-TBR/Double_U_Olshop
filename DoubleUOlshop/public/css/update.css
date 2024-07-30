@@ -14,9 +14,13 @@ input {
     width: 100%;
 }
 
+section{
+    background-color: #D45179;
+}
+
 /* navbar start */
-navbar {
-    background-color: #dcd4d6;
+nav {
+    background-color: #F4E5E5;
 }
 
 #logo {
@@ -62,6 +66,11 @@ navbar {
     outline: none;
 }
 
+#buttonBaru{
+    background-color: #D45179;
+    border: none;
+}
+
 #menu a {
     color: #1f1c1c;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -73,7 +82,8 @@ navbar {
 }
 /* navbar end, isi start*/
 
-tr img {
+#gambar-tabel{
+    width: 10vh;
     height: 10vh;
 }
 
@@ -87,4 +97,30 @@ tr img {
 
 .id-hidden{
     display: none;
+}
+
+
+
+#confirmAddButton{
+    background-color: #D45179;
+    border: none;
+}
+
+#buttonPerbarui{
+    background-color: #D45179;
+    border: none;
+}
+
+#buttonHapus{
+    background-color: #DC3545;
+    border: none;
+}
+
+textarea {
+    resize: vertical; /* Hanya memungkinkan perubahan ukuran secara vertikal */
+}
+
+/* Mengatur input agar lebar menyesuaikan kontainer */
+input[type="text"], input[type="number"] {
+    width: 100%;
 }

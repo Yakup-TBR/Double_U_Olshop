@@ -12,8 +12,8 @@
 </head>
 
 <body>
-@extends('partial.navbar')
-@section('isi')
+    @extends('partial.navbar')
+    @section('isi')
     <section>
 
         <div class="row">
@@ -113,25 +113,35 @@
 
             <div class="container col" id="katalog">
                 <div class="row row-cols-md-5 g-1">
+                    @if(count($produk) > 0)
                     @foreach($produk as $data)
-                    <form action="/{{ $data->id }}" method="get">
+                    <form action="{{ route('katalog') }}" method="get">
                         <div class="card" style="width: 95%; height: 96%">
-                            <img src="{{ asset('uploads/' . $data->gambar_1) }}" class="card-img-top">
+                            @if(isset($data['gambar'][0]))
+                            <img src="{{ $data['gambar'][0] }}" class="card-img-top">
+                            @else
+                            <p>Gambar tidak tersedia</p>
+                            @endif
                             <div class="card-body p-1 pb-0">
-                                <h5 class="card-title text-center" data-href="{{ route('katalog', ['id' => $data->id]) }}" onclick="handleCardClick(this)">{{ $data->name}}</h5>
-                                <h6 class="card-text1 text-center" data-harga="{{ $data->harga }}" data-href="{{ route('katalog', ['id' => $data->id]) }}" onclick="handleCardClick(this)">Harga : Rp. {{ $data->harga }}</h6>
-                                <p id="jarak-{{ $data->id }}" class="card-text2" data-href="{{ route('katalog', ['id' => $data->id]) }}" onclick="handleCardClick(this)">{!! nl2br(e($data->deskripsi_pendek)) !!}</p>
+                                <h5 class="card-title text-center" onclick="handleCardClick(this)">{{ $data['nama'] }}</h5>
+                                <h6 class="card-text1 text-center" onclick="handleCardClick(this)">Harga : Rp. {{ $data['harga'] }}</h6>
+                                <p class="card-text2" onclick="handleCardClick(this)">{!! nl2br(e($data['deskripsi_pendek'])) !!}</p>
                             </div>
                         </div>
                     </form>
                     @endforeach
+                    @else
+                    <tr>
+                        <p>Data Tidak Ditemukan</p>
+                    </tr>
+                    @endif
                 </div>
 
             </div>
         </div>
 
     </section>
-    
+
     <script src="{{ asset('js/index.js') }}"></script>
     @endsection
 </body>

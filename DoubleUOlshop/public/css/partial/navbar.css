@@ -1,9 +1,19 @@
 /* Style desktop */
+body{
+    background-color: #D45179;
+}
+
 navbar {
     background-color: #f4e5e5;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.navbar::after {
+    background-color: #D45179;
 }
 
 #logo {

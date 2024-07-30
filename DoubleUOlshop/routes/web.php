@@ -22,7 +22,7 @@ Route::get('/detail/{id}', [Katalog::class, 'detail'])->name('detail');
 
 
 // CRUD | Tarik data semua produk
-Route::get('/produk', [CrudController::class, 'index'])->name('produk.index');
+Route::get('/gudang', [CrudController::class, 'index'])->name('produk.index');
 
 // CRUD | Tambah produk
 Route::post('/produk', [CrudController::class, 'store'])->name('produk.store');
@@ -31,7 +31,7 @@ Route::post('/produk', [CrudController::class, 'store'])->name('produk.store');
 Route::get('/edit/{id}', [CrudController::class, 'editPage'])->name('produk.edit');
 
 // CRUD | Edit Modal Produk
-Route::get('/editModal/{id}', [CrudController::class, 'editModal'])->name('produk.editModal');
+Route::put('/produk/{id}', [CrudController::class, 'editModal'])->name('produk.editModal');
 
 // CRUD | Hapus Produk di detail
 Route::get('/deleteDetail/{id}', [CrudController::class, 'deleteDetail'])->name('produk.deleteDetail');

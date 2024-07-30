@@ -101,6 +101,68 @@ class CrudController extends Controller
         }
     }
 
+    public function editModal(Request $request, $id)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'kategori' => 'required',
+            'harga' => 'required|numeric',
+            'deskripsi_pendek' => 'required',
+            'deskripsi_panjang' => 'required',
+            'gambar.*' => 'image|mimes:jpeg,png,jpg,gif|max:10240'
+        ]);
+
+        $data = $request->only(['nama', 'kategori', 'harga', 'deskripsi_pendek', 'deskripsi_panjang']);
+        $data['id'] = $id;
+        $data['gambar'] = [];
+
+        // Mengonfigurasi Firebase
+        $factory = (new Factory)->withServiceAccount(config_path('firebase-credential.json'));
+        $firestore = $factory->createFirestore();
+        $database = $firestore->database();
+        $produkRef = $database->collection('produk')->document($id);
+
+        $snapshot = $produkRef->snapshot();
+
+        // Hapus gambar lama jika ada gambar baru yang diunggah
+        if ($request->hasFile('gambar')) {
+            $oldGambar = $snapshot->data()['gambar'] ?? [];
+            $storage = $factory->createStorage();
+            $bucket = $storage->getBucket();
+
+            foreach ($oldGambar as $url) {
+                $path = parse_url($url, PHP_URL_PATH);
+                $fileName = basename($path);
+                $bucket->object('images/' . $fileName)->delete();
+            }
+
+            foreach ($request->file('gambar') as $file) {
+                $fileName = Str::random(16) . '.' . $file->getClientOriginalExtension();
+                $filePath = 'images/' . $fileName;
+
+                // Unggah gambar ke Firebase Storage
+                $uploadedFile = $bucket->upload(file_get_contents($file->getPathname()), [
+                    'name' => $filePath
+                ]);
+
+                // Mengatur akses file menjadi publik
+                $uploadedFile->acl()->add('allUsers', 'READER');
+
+                // Dapatkan URL publik
+                $imageUrl = 'https://storage.googleapis.com/' . $bucket->name() . '/' . $filePath;
+
+                $data['gambar'][] = $imageUrl;
+            }
+        } else {
+            $data['gambar'] = $snapshot->data()['gambar'] ?? [];
+        }
+
+        // Perbarui data produk di Firestore
+        $produkRef->set($data);
+
+        return redirect()->route('produk.index')->with('success', 'Produk berhasil diperbarui.');
+    }
+    
     // Fungsi Hapus Produk di detail
     public function deleteDetail($id)
     {
