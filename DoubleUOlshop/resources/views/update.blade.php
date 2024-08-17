@@ -22,7 +22,7 @@
 
             <div class="col-center" id="searchContainer">
                 <div class="search">
-                    <form action="{{ route('search') }}" method="GET">
+                    <form action="{{ route('searchGudang') }}" method="GET">
                         <input class="form-control" id="searchInput" name="search" type="search" placeholder="Cari produk pilihanmu" aria-label="Cari">
                     </form>
                 </div>
@@ -52,7 +52,7 @@
                 <tbody>
                     @if(count($produk) > 0)
                     @foreach($produk as $data)
-                    <tr class="clickable-row" data-href="{{ route('produk.edit', $data['id']) }}">
+                    <tr class="clickable-row" data-href="{{ route('produk.edit', $data['id']) }}" style="cursor: pointer;">
                         <td class="checknya">
                             <input class="form-check-input" type="checkbox" id="produk" name="produk" value="produk">
                             <label class="form-check-label" for="produk"></label>
@@ -71,7 +71,7 @@
                         <td>{{ Str::limit($data['deskripsi_pendek'], 30) }}</td>
                         <td>{{ Str::limit($data['deskripsi_panjang'], 30) }}</td>
                         <td>
-                            <button type="button" class="btn btn-secondary mb-1" data-bs-toggle="modal" data-bs-target="#editModal" data-gambar='@json($data['gambar'])' data-nama="{{ $data['nama'] }}" data-id="{{ $data['id'] }}" data-kategori="{{ $data['kategori'] }}" data-harga="{{ $data['harga'] }}" data-deskripsi_pendek="{{ $data['deskripsi_pendek'] }}" data-deskripsi_panjang="{{ $data['deskripsi_panjang'] }}">
+                            <button type="button" class="btn btn-secondary mb-1" data-bs-toggle="modal" data-bs-target="#editModal" data-gambar='@json($data["gambar"])' data-nama="{{ $data['nama'] }}" data-id="{{ $data['id'] }}" data-kategori="{{ $data['kategori'] }}" data-harga="{{ $data['harga'] }}" data-deskripsi_pendek="{{ $data['deskripsi_pendek'] }}" data-deskripsi_panjang="{{ $data['deskripsi_panjang'] }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                     <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z" />
                                 </svg>
@@ -114,16 +114,40 @@
                         <div class="mb-3">
                             <label class="form-label">Kategori</label><br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="kategori" id="kalung" value="Kalung">
-                                <label class="form-check-label" for="kalung">Kalung</label>
+                                <input class="form-check-input" type="radio" name="kategori" id="Kalung" value="Kalung">
+                                <label class="form-check-label" for="Kalung">Kalung</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="kategori" id="gelang" value="Gelang">
-                                <label class="form-check-label" for="gelang">Gelang</label>
+                                <input class="form-check-input" type="radio" name="kategori" id="Gelang" value="Gelang">
+                                <label class="form-check-label" for="Gelang">Gelang</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="kategori" id="anting" value="Anting">
-                                <label class="form-check-label" for="anting">Anting</label>
+                                <input class="form-check-input" type="radio" name="kategori" id="Anting" value="Anting">
+                                <label class="form-check-label" for="Anting">Anting</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="kategori" id="Liontin" value="Liontin">
+                                <label class="form-check-label" for="Liontin">Liontin</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="kategori" id="Cincin" value="Cincin">
+                                <label class="form-check-label" for="Cincin">Cincin</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="kategori" id="Jam_Fashion" value="Jam Fashion">
+                                <label class="form-check-label" for="Jam_Fashion">Jam Fashion</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="kategori" id="Gelang_Fashion" value="Gelang Fashion">
+                                <label class="form-check-label" for="Gelang_Fashion">Gelang Fashion</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="kategori" id="Kuku_Palsu" value="Kuku Palsu">
+                                <label class="form-check-label" for="Kuku_Palsu">Kuku Palsu</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="kategori" id="Strap_Phone" value="Strap Phone">
+                                <label class="form-check-label" for="Strap_Phone">Strap Phone</label>
                             </div>
                         </div>
                         <div class="mb-3">
@@ -185,6 +209,30 @@
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="kategori" id="editAnting" value="Anting">
                                 <label class="form-check-label" for="editAnting">Anting</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="kategori" id="editLiontin" value="Liontin">
+                                <label class="form-check-label" for="editLiontin">Liontin</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="kategori" id="editCincin" value="Cincin">
+                                <label class="form-check-label" for="editCincin">Cincin</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="kategori" id="editJam_Fashion" value="Jam Fashion">
+                                <label class="form-check-label" for="editJam_Fashion">Jam Fashion</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="kategori" id="editGelang_Fashion" value="Gelang Fashion">
+                                <label class="form-check-label" for="editGelang_Fashion">Gelang Fashion</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="kategori" id="editKuku_Palsu" value="Kuku Palsu">
+                                <label class="form-check-label" for="editKuku_Palsu">Kuku Palsu</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="kategori" id="editStrap_Phone" value="Strap Phone">
+                                <label class="form-check-label" for="editStrap_Phone">Strap Phone</label>
                             </div>
                         </div>
                         <div class="mb-3">
@@ -296,6 +344,12 @@
                 var modalKalung = document.getElementById('editKalung');
                 var modalGelang = document.getElementById('editGelang');
                 var modalAnting = document.getElementById('editAnting');
+                var modalLiontin = document.getElementById('editLiontin');
+                var modalCincin = document.getElementById('editCincin');
+                var modalJam_Fashion = document.getElementById('editJam_Fashion');
+                var modalGelang_Fashion = document.getElementById('editGelang_Fashion');
+                var modalKuku_Palsu = document.getElementById('editKuku_Palsu');
+                var modalStrap_Phone = document.getElementById('editStrap_Phone');
                 var modalHarga = document.getElementById('editHarga');
                 var modalDeskripsiPendek = document.getElementById('editDeskripsiPendek');
                 var modalDeskripsiPanjang = document.getElementById('editDeskripsiPanjang');
@@ -319,7 +373,20 @@
                     modalGelang.checked = true;
                 } else if (kategori === 'Anting') {
                     modalAnting.checked = true;
+                } else if (kategori === 'Liontin') {
+                    modalLiontin.checked = true;
+                } else if (kategori === 'Cincin') {
+                    modalCincin.checked = true;
+                } else if (kategori === 'Jam Fashion') {
+                    modalJam_Fashion.checked = true;
+                } else if (kategori === 'Gelang Fashion') {
+                    modalGelang_Fashion.checked = true;
+                } else if (kategori === 'Kuku Palsu') {
+                    modalKuku_Palsu.checked = true;
+                } else if (kategori === 'Strap Phone') {
+                    modalStrap_Phone.checked = true;
                 }
+
 
                 // Clear existing images in the container
                 modalBodyGambarContainer.innerHTML = '';

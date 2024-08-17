@@ -4,27 +4,30 @@ body,
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body,
 input {
     background-color: #d45179;
-    height: 100%;
-    width: 100%;
+}
+
+#nopal {
+    background-color: #d45179;
 }
 
 /* ---navbar end, isi start--- */
 
-section{
-    background-color: #d45179;
+section {
+    margin: 0%;
+    padding: 0%;
 }
 #filter {
     max-width: 17%;
     color: #ffffff;
     position: sticky;
     width: 100%;
-    z-index: 100;
+    padding: 0%;
+    margin: 0%;
 }
 
 #filter h5 {
@@ -43,7 +46,7 @@ section{
     background: #fff;
     border-radius: 10px;
     padding: 20px 25px 40px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 35px rgba(0, 0, 0, 0.1);
 }
 
 .price-input {
@@ -140,90 +143,269 @@ input[type="range"]::-moz-range-thumb {
 #katalog {
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-block-end: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+#perbaiki {
+    padding: 0%;
+    margin: 0%;
+}
+
+#perbaikiRow {
+    padding: 0%;
+    margin: 0%;
+}
+
+#loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    text-align: center;
 }
 
 #katalog .container {
-    display: flex;
     flex-wrap: wrap;
 }
 
-.card {
+#produkCard {
     flex-grow: 1;
     flex-basis: 200;
+    border: none;
+    padding: 0%;
+    margin: 0%;
+    margin-block-end: 0%;
 }
 
-.card img {
-    height: 50%;
+.card-img-top {
+    min-height: 250px;
+    max-height: 250px;
+}
+
+#isiCard {
+    padding: 0%;
+    min-height: 70px;
+}
+
+#katalog #nama {
+    background-color: transparent;
+}
+
+#nama {
+    min-height: 40px;
+    max-height: 40px;
+    display: flex;
+    padding-top: 5px;
+    padding-top: 5px;
+}
+
+#katalog #harga {
+    background-color: transparent;
+    display: flex;
+    padding-top: 5px;
+    min-height: 26px;
+    max-height: 26px;
 }
 
 #katalog h5 {
     font-size: 18px;
+    margin: auto;
+    font-weight: normal;
+    /* padding-top:5px; */
+    font-family: "Poppins", sans-serif;
 }
 
 #katalog h6 {
-    font-size: 14px;
+    font-size: 17px;
+    margin: auto;
+    font-weight: bold;
+    color: #d45179;
+    font-family: "Poppins", sans-serif;
 }
 
 #katalog p {
     font-size: 12px;
+    font-family: "Poppins", sans-serif;
 }
 
 /* .card{
     padding-bottom: 20;
 } */
 
-/* isi end, footer start*/
-footer {
-    background-color: #f4e5e5;
-    position: static;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    padding-top: 20px;
+@media (max-width: 480px) {
+    #filter {
+        display: none;
+    }
+
+    #katalog{
+        padding: 0%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Atur jumlah card per baris menjadi 2 */
+    .row-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Atur ukuran card sesuai kebutuhan */
+    #produkCard {
+        flex-basis: calc(90% - 10px); /* Sesuaikan ukuran card */
+        
+    }
+
+    /* Atur ukuran gambar dalam card */
+    .card-img-top {
+        min-height: 200px;
+        max-height: 200px;
+    }
+
+    /* Atur layout isi card */
+    #isiCard {
+        min-height: 60px;
+    }
+
+    /* Atur font-size dan ukuran struktur lainnya */
+    #katalog h5 {
+        font-size: 16px;
+    }
+
+    #katalog h6 {
+        font-size: 15px;
+    }
+
+    #katalog p {
+        font-size: 11px;
+    }
 }
 
-footer #logo {
-    font-size: 13px;
+@media (max-width: 780px) {
+
+    #filter {
+        display: none;
+    }
+
+    #katalog{
+        padding: 0%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    /* Atur jumlah card per baris menjadi 4 */
+    .row-cols-sm-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Atur ukuran gambar dalam card */
+    .card-img-top {
+        min-height: 200px;
+        max-height: 200px;
+    }
+
+    /* Atur layout isi card */
+    #isiCard {
+        padding: 10px;
+        min-height: 70px;
+    }
+
+    /* Atur font-size dan ukuran struktur lainnya */
+    #katalog h5 {
+        font-size: 18px;
+    }
+
+    #katalog h6 {
+        font-size: 17px;
+    }
+
+    #katalog p {
+        font-size: 12px;
+    }
 }
 
-footer p {
-    font-size: 10px;
+@media (max-width: 992px) {
+
+    #filter {
+        display: none;
+    }
+
+    #katalog{
+        padding: 0%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    /* Atur jumlah card per baris menjadi 4 */
+    .row-cols-sm-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Atur ukuran gambar dalam card */
+    .card-img-top {
+        min-height: 200px;
+        max-height: 200px;
+    }
+
+    /* Atur layout isi card */
+    #isiCard {
+        padding: 10px;
+        min-height: 70px;
+    }
+
+    /* Atur font-size dan ukuran struktur lainnya */
+    #katalog h5 {
+        font-size: 18px;
+    }
+
+    #katalog h6 {
+        font-size: 17px;
+    }
+
+    #katalog p {
+        font-size: 12px;
+    }
 }
 
-footer h5 {
-    font-size: 15px;
-    font-weight: bold;
+@media (max-width: 1024px) {
+
+    #filter {
+        display: none;
+    }
+
+    #katalog{
+        padding: 0%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    /* Atur jumlah card per baris menjadi 4 */
+    .row-cols-sm-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Atur ukuran gambar dalam card */
+    .card-img-top {
+        min-height: 200px;
+        max-height: 200px;
+    }
+
+    /* Atur layout isi card */
+    #isiCard {
+        padding: 10px;
+        min-height: 70px;
+    }
+
+    /* Atur font-size dan ukuran struktur lainnya */
+    #katalog h5 {
+        font-size: 18px;
+    }
+
+    #katalog h6 {
+        font-size: 17px;
+    }
+
+    #katalog p {
+        font-size: 12px;
+    }
 }
 
-footer #logo img {
-    width: 80px;
-    height: auto;
-    margin-bottom: 10px;
-    flex-shrink: 0;
-}
 
-#follow {
-    max-width: 28%;
-    padding-top: 17px;
-}
-
-#instagram,
-#tokopedia,
-#shopee,
-#tiktok {
-    text-decoration: none;
-    color: black;
-    font-size: 15px;
-}
-
-#instagram i {
-    padding-right: 7px;
-}
-
-#shopee svg {
-    margin-right: 2px;
-}
-
-#about {
-    padding-top: 17px;
-}

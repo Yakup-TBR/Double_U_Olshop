@@ -1,6 +1,10 @@
 /* Style desktop */
-body{
-    background-color: #D45179;
+body {
+    background-color: #d45179;
+}
+
+section {
+    background-color: #d45179;
 }
 
 navbar {
@@ -13,7 +17,7 @@ navbar {
 }
 
 .navbar::after {
-    background-color: #D45179;
+    background-color: #d45179;
 }
 
 #logo {
@@ -31,6 +35,7 @@ navbar {
 #logo a {
     font-weight: 400;
     font-size: 23px;
+    font-family: "Poppins", sans-serif;
 }
 
 #searchContainer {
@@ -59,7 +64,7 @@ navbar {
 #menu a {
     color: #1f1c1c;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -67,55 +72,148 @@ navbar {
     margin-left: 15px; /* spacing between menu items */
 }
 
-.mobile-only {
+#navbarMobile {
     display: none;
 }
 
-/* Styles for devices with max-width 600px */
-@media (max-width: 600px) {
-    navbar {
-        display: block;
-        text-align: center;
-        padding: 10px;
+.sidebar{
+    display: none;
+}
+
+@media (max-width: 480px) {
+    #navnya {
+        display: none;
     }
 
-    #logo, #searchContainer, #menu {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px; /* Space between rows */
+    #navbar {
+        padding: 0%;
     }
 
-    #logo {
+    #navbarMobile {
+        display: block;
+    }
+
+    #navbarMobileAtas {
         display: flex;
-        justify-content: space-between;
+        /* background-color: aquamarine; */
+        padding-top: 10px;
+    }
+
+    #sidebar {
+        display: flex;
+    }
+
+    #siderbarcon {
+        display: flex;
         align-items: center;
     }
 
-    #logo img {
-        width: 40px; /* Smaller logo */
+    #sidebar img {
+        width: 30px;
+        cursor: pointer;
     }
 
-    #searchContainer {
+    #logoMobile img {
+        width: 70px;
+        height: auto;
+    }
+
+    #searchMobile {
         display: flex;
-        justify-content: space-between;
+    }
+
+    #searchcon {
+        display: flex;
+        justify-content: end;
         align-items: center;
+    }
+
+    #searchMobile img {
+        width: 35px;
+    }
+
+    #navbarMobileBawah {
+        justify-content: center;
+        padding: 0%;
     }
 
     #menu {
         display: flex;
         justify-content: space-around;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 10px;
+    }
+
+    /* navbar end, sidebar start */
+    
+}
+
+@media (max-width: 768px) {
+    #navnya {
+        display: none;
+    }
+
+    #navbar {
+        padding: 0%;
+    }
+
+    #navbarMobile {
+        display: block;
+    }
+
+    #navbarMobileAtas {
+        display: flex;
+        /* background-color: aquamarine; */
+        padding-top: 10px;
+    }
+
+    #sidebar {
+        display: flex;
+    }
+
+    #siderbarcon {
+        display: flex;
         align-items: center;
     }
 
-    #menu a {
-        flex: 1;
-        margin: 0 5px; /* Adjust spacing if necessary */
+    #sidebar img {
+        width: 30px;
+        cursor: pointer;
     }
 
-    /* Show the mobile menu icon */
-    .mobile-only {
-        display: block;
+    #logoMobile img {
+        width: 70px;
+        height: auto;
     }
+
+    #searchMobile {
+        display: flex;
+    }
+
+    #searchcon {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+
+    #searchMobile img {
+        width: 35px;
+    }
+
+    #navbarMobileBawah {
+        justify-content: center;
+        padding: 0%;
+    }
+
+    #menu {
+        display: flex;
+        justify-content: space-around;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 10px;
+    }
+
+    /* navbar end, sidebar start */
+
 }
-
-/* ---navbar end, isi start--- */

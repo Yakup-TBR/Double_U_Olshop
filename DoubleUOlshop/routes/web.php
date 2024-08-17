@@ -12,14 +12,19 @@ use App\Http\Controllers\FirebaseTestController;
 Route::get('/', [Katalog::class, 'index'])->name('katalog');
 
 // Katalog | Searching Produk
-Route::get('/search', [Katalog::class, 'search'])->name('search');
+Route::get('/search', [Katalog::class, 'search'])->name('searchBox');
+
+// Katalog | Filter checkbox
+Route::get('/searchFilter', [Katalog::class, 'searchFilter'])->name('searchFilter');
 
 // Katalog | Searching Searchbox
-Route::get('/searchBox', [Katalog::class, 'searchBox'])->name('searchBox');
+// Route::get('/searchBox', [Katalog::class, 'search'])->name('searchBox');
 
 // Detail Produk
-Route::get('/detail/{id}', [Katalog::class, 'detail'])->name('detail');
+Route::get('/detail/{id}', [Katalog::class, 'detailPage'])->name('detail');
 
+// CRUD | Searching produk
+Route::get('/searchGudang', [CrudController::class, 'search'])->name('searchGudang');
 
 // CRUD | Tarik data semua produk
 Route::get('/gudang', [CrudController::class, 'index'])->name('produk.index');
