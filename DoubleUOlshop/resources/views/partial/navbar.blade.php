@@ -13,7 +13,7 @@
 <body>
     <!-- -- Navbar Start -- -->
     <navbar class="navbar sticky-top" id="navbar">
-        <div class="container text-center" id="navnya">
+        <div class="container text-center col-xl-11 col-xxl-11" id="navnya">
             <div class="col-start" id="logo">
                 <div class="container">
                     <div class="row align-items-center">

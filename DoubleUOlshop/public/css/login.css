@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
+body {
+    background: linear-gradient(90deg, #d45179, #cb91bd);
+}
+
+#logo{
+    background-color: #f4e5e5;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+h2{
+    
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    height: 100vh; /* Menyesuaikan tinggi container dengan tinggi viewport */
+    display: flex;
+    justify-content: center; /* Menempatkan konten di tengah secara horizontal */
+    align-items: center; /* Menempatkan konten di tengah secara vertikal */
+}
+
+.row {
+    width: 100%; /* Mengatur lebar baris agar memenuhi container */
+}
+
+#logo img {
+    max-width: 150px; /* Memastikan gambar tidak melebihi lebar kolom */
+    height: auto; /* Menjaga aspek rasio gambar */
+    margin-bottom: 20px; /* Memberi jarak antara gambar dan elemen lainnya */
+}
+
+#buttonLogin{
+    background-color: #d45179;
+    border: none;
+}
+
+#alert{
+    margin: 20px;
+}

@@ -20,10 +20,17 @@
                 <a class="navbar-brand" href="#">DOUBLE U OLSHOP</a>
             </div>
 
+            <!-- <div class="container">
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Sign Out</button>
+                </form>
+            </div> -->
+            
             <div class="col-center" id="searchContainer">
                 <div class="search">
                     <form action="{{ route('searchGudang') }}" method="GET">
-                        <input class="form-control" id="searchInput" name="search" type="search" placeholder="Cari produk pilihanmu" aria-label="Cari">
+                        <input class="form-control" id="searchInput" name="search" type="search" placeholder="Cari produk dalam stok" aria-label="Cari">
                     </form>
                 </div>
             </div>

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\Katalog;
+use App\Http\Controllers\ProtectedController;
+
 use App\Http\Controllers\Update;
 use Illuminate\Support\Facades\Route;
 use Kreait\Firebase\Factory;
@@ -23,11 +25,23 @@ Route::get('/searchFilter', [Katalog::class, 'searchFilter'])->name('searchFilte
 // Detail Produk
 Route::get('/detail/{id}', [Katalog::class, 'detailPage'])->name('detail');
 
+//  -------- PUBLIC END, ADMIN START ---------
+
+// Rute untuk halaman login tanpa middleware
+Route::get('/login', [ProtectedController::class, 'loginView'])->name('loginView');
+Route::post('/login', [ProtectedController::class, 'loginSubmit'])->name('login.submit');
+
+Route::middleware(['firebase.auth'])->group(function () {
+    Route::get('/gudang', [CrudController::class, 'index'])->name('produk.index');
+});
+
+Route::post('/logout', [ProtectedController::class, 'logout'])->name('logout');
+
 // CRUD | Searching produk
 Route::get('/searchGudang', [CrudController::class, 'search'])->name('searchGudang');
 
 // CRUD | Tarik data semua produk
-Route::get('/gudang', [CrudController::class, 'index'])->name('produk.index');
+// Route::get('/gudang', [CrudController::class, 'index'])->name('produk.index');
 
 // CRUD | Tambah produk
 Route::post('/produk', [CrudController::class, 'store'])->name('produk.store');
@@ -47,15 +61,6 @@ Route::get('/delete/{id}', [CrudController::class, 'deleteOne'])->name('produk.d
 
 
 // Test Navbar
-Route::get('/navbar', function(){
+Route::get('/navbar', function () {
     return view('partial.navbar');
 });
-
-
-
-
-
-
-
-
-

@@ -10,18 +10,21 @@ use Carbon\Carbon;
 class CrudController extends Controller
 {
     // Tampilkan daftar produk
-    public function index()
+    public function index(Request $request)
     {
+        // Mengambil informasi pengguna dari session
+        $firebaseUser = $request->session()->get('firebase_user');
+
         // Mengonfigurasi koneksi ke Firestore
         $factory = (new Factory)->withServiceAccount(config_path('firebase-credential.json'));
+
+        // Membuat koneksi ke Firestore
         $firestore = $factory->createFirestore();
         $database = $firestore->database();
         $stok = $database->collection('produk');
         $documents = $stok->documents();
 
-        // Debugging: Tampilkan data dokumen yang diambil
-        // dd($documents);
-
+        // Mengambil data dari Firestore
         $data = [];
         foreach ($documents as $document) {
             if ($document->exists()) {
@@ -29,11 +32,13 @@ class CrudController extends Controller
             }
         }
 
-        // Debugging: Tampilkan data yang akan dikirim ke view
-        // dd($data);
-
-        return view('update', ['produk' => $data]);
+        // Mengirim data ke view 'update'
+        return view('update', [
+            'produk' => $data,
+            'user' => $firebaseUser
+        ]);
     }
+
 
     // Fungsi searching di gudang
     public function search(Request $request)

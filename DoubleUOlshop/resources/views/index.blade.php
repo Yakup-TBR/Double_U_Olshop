@@ -63,7 +63,7 @@
                         </li>
                     </ul>
 
-                    <ul class="list-unstyled" id="material">
+                    <!-- <ul class="list-unstyled" id="material">
                         <h5>Material</h5>
                         <li class="form-check">
                             <input class="form-check-input" type="checkbox" id="Crystal" name="tipe[]" value="Crystal">
@@ -89,12 +89,12 @@
                             <input class="form-check-input" type="checkbox" id="Sintetic" name="tipe[]" value="Sintetic">
                             <label class="form-check-label" for="Sintetic">Sintetic</label>
                         </li>
-                    </ul>
+                    </ul> -->
                 </form>
             </div>
 
             <div class="container col" id="katalog">
-                <div class="row row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-1" id="perbaiki">
+                <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-1" id="perbaiki">
                     <div id="loading" style="display: none;">
                         <div class="spinner-border text-primary" role="status">
                             <span class="visually-hidden">Loading...</span>
