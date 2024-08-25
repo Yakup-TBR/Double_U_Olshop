@@ -17,7 +17,8 @@ Route::get('/', [Katalog::class, 'index'])->name('katalog');
 Route::get('/search', [Katalog::class, 'search'])->name('searchBox');
 
 // Katalog | Filter checkbox
-Route::get('/searchFilter', [Katalog::class, 'searchFilter'])->name('searchFilter');
+Route::get('/filter', [Katalog::class, 'filter'])->name('filter');
+// Route::get('/searchFilter', [Katalog::class, 'searchFilter'])->name('searchFilter');
 
 // Katalog | Searching Searchbox
 // Route::get('/searchBox', [Katalog::class, 'search'])->name('searchBox');

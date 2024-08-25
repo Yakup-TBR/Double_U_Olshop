@@ -14,31 +14,63 @@
 
 <body>
     <nav class="navbar sticky-top">
-        <div class="container text-center" id="navnya">
-            <div class="col-start" id="logo">
-                <img src="{{ asset('img/logo_juli_jewelry.png') }}" alt="Logo KosTel">
-                <a class="navbar-brand" href="#">DOUBLE U OLSHOP</a>
+        <div class="container-fluid d-flex justify-content-between align-items-center" id="isiNavbar">
+            <div class="d-flex align-items-center" id="logo">
+                <img src="{{ asset('img/logo_juli_jewelry.png') }}" alt="Logo KosTel" class="me-2">
+                <a class="navbar-brand" href="#">Juli Jewelry</a>
             </div>
 
-            <!-- <div class="container">
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn btn-danger">Sign Out</button>
-                </form>
-            </div> -->
-            
-            <div class="col-center" id="searchContainer">
-                <div class="search">
-                    <form action="{{ route('searchGudang') }}" method="GET">
-                        <input class="form-control" id="searchInput" name="search" type="search" placeholder="Cari produk dalam stok" aria-label="Cari">
-                    </form>
+            <div class="col-6">
+                <div class="container" id="searchContainer">
+                    <div class="search">
+                        <form action="{{ route('searchGudang') }}" method="GET">
+                            <input class="form-control" id="searchInput" name="search" type="search" placeholder="Cari produk dalam stok" aria-label="Cari">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <button id="buttonBaru" type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#productModal">+ Produk Baru</button>
+
+                <svg width="45" height="45" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    style="cursor: pointer;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+                    <g clip-path="url(#clip0_270_4)">
+                        <path d="M43.3334 37.9167C44.1681 37.9171 44.9705 38.2386 45.5746 38.8146C46.1786 39.3906 46.5379 40.1769 46.5781 41.0105C46.6182 41.8442 46.336 42.6613 45.79 43.2926C45.2441 43.9239 44.4762 44.321 43.6454 44.4015L43.3334 44.4167H8.66675C7.83211 44.4163 7.02963 44.0948 6.42558 43.5188C5.82153 42.9428 5.46222 42.1566 5.42211 41.3229C5.382 40.4892 5.66416 39.6721 6.21013 39.0408C6.75609 38.4095 7.52401 38.0124 8.35475 37.9319L8.66675 37.9167H43.3334ZM43.3334 22.75C44.1954 22.75 45.022 23.0924 45.6315 23.7019C46.241 24.3114 46.5834 25.1381 46.5834 26C46.5834 26.862 46.241 27.6886 45.6315 28.2981C45.022 28.9076 44.1954 29.25 43.3334 29.25H8.66675C7.80479 29.25 6.97814 28.9076 6.36865 28.2981C5.75916 27.6886 5.41675 26.862 5.41675 26C5.41675 25.1381 5.75916 24.3114 6.36865 23.7019C6.97814 23.0924 7.80479 22.75 8.66675 22.75H43.3334ZM43.3334 7.58337C44.1954 7.58337 45.022 7.92578 45.6315 8.53528C46.241 9.14477 46.5834 9.97142 46.5834 10.8334C46.5834 11.6953 46.241 12.522 45.6315 13.1315C45.022 13.741 44.1954 14.0834 43.3334 14.0834H8.66675C7.80479 14.0834 6.97814 13.741 6.36865 13.1315C5.75916 12.522 5.41675 11.6953 5.41675 10.8334C5.41675 9.97142 5.75916 9.14477 6.36865 8.53528C6.97814 7.92578 7.80479 7.58337 8.66675 7.58337H43.3334Z" fill="#606060" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_270_4">
+                            <rect width="52" height="52" fill="white" />
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Sidebar Offcanvas -->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="container">
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-danger" id="buttonLogOut">
+                                <svg width="50" height="39" viewBox="0 0 50 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.4167 34.125C9.27083 34.125 8.29028 33.807 7.475 33.1711C6.65972 32.5352 6.25139 31.7698 6.25 30.875V8.125C6.25 7.23125 6.65833 6.46642 7.475 5.8305C8.29167 5.19458 9.27222 4.87608 10.4167 4.875H25V8.125H10.4167V30.875H25V34.125H10.4167ZM33.3333 27.625L30.4687 25.2688L35.7812 21.125H18.75V17.875H35.7812L30.4687 13.7312L33.3333 11.375L43.75 19.5L33.3333 27.625Z" fill="white" />
+                                </svg>
+                                Sign Out
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
 
 
-            <button id="buttonBaru" type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#productModal">+ Produk Baru</button>
+
         </div>
     </nav>
+
 
     <section>
         <div style="padding: 0;">

@@ -1,19 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-body,
-* {
+body {
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
-body,
-input {
+body{
     background-color: #d45179;
 }
 
-#nopal {
-    background-color: #d45179;
-}
 
 /* ---navbar end, isi start--- */
 
@@ -21,24 +17,55 @@ section {
     margin: 0%;
     padding: 0%;
 }
+
+#perbaikiRow {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 #filter {
     max-width: 17%;
     color: #ffffff;
-    position: sticky;
+    /* position: fixed; */
     width: 100%;
     padding: 0%;
     margin: 0%;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+#filter button {
+    width: 180px;
+    background-color: #d45179;
+    border-color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    transition:
+        background-color 0.3s,
+        transform 0.3s;
+}
+
+#filter button:hover {
+    background-color: #cd6081;
+    transform: scale(1.05);
+}
+
+#filter button:active {
+    background-color: #cd6081;
+    transform: scale(0.95);
 }
 
 #filter h5 {
     font-size: 17px;
     padding-left: 15%;
     padding-right: 0%;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 #filter li {
-    padding-left: 40%;
+    padding-left: 30%;
 }
 
 .harga {
@@ -55,10 +82,6 @@ section {
     /* background-color: greenyellow; */
     padding-left: 50px;
 }
-
-/* #max{
-    background-color: greenyellow;
-} */
 
 .price-input .field {
     width: 70%;
@@ -146,6 +169,8 @@ input[type="range"]::-moz-range-thumb {
     padding-block-end: 0%;
     padding-left: 0%;
     padding-right: 0%;
+    /* margin-left: 17%; */
+    padding-top: 10px;
 }
 
 #perbaiki {
@@ -210,6 +235,11 @@ input[type="range"]::-moz-range-thumb {
     max-height: 26px;
 }
 
+#hargaCard {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 #katalog h5 {
     font-size: 18px;
     margin: auto;
@@ -240,10 +270,11 @@ input[type="range"]::-moz-range-thumb {
         display: none;
     }
 
-    #katalog{
+    #katalog {
         padding: 0%;
         padding-left: 20px;
         padding-right: 20px;
+        /* margin-left: 0%; */
     }
 
     /* Atur jumlah card per baris menjadi 2 */
@@ -254,7 +285,6 @@ input[type="range"]::-moz-range-thumb {
     /* Atur ukuran card sesuai kebutuhan */
     #produkCard {
         flex-basis: calc(90% - 10px); /* Sesuaikan ukuran card */
-        
     }
 
     /* Atur ukuran gambar dalam card */
@@ -283,15 +313,15 @@ input[type="range"]::-moz-range-thumb {
 }
 
 @media (max-width: 780px) {
-
     #filter {
         display: none;
     }
 
-    #katalog{
+    #katalog {
         padding: 0%;
         padding-left: 20px;
         padding-right: 20px;
+        /* margin-left: 0%; */
     }
     /* Atur jumlah card per baris menjadi 4 */
     .row-cols-sm-4 {
@@ -325,15 +355,15 @@ input[type="range"]::-moz-range-thumb {
 }
 
 @media (max-width: 992px) {
-
     #filter {
         display: none;
     }
 
-    #katalog{
+    #katalog {
         padding: 0%;
         padding-left: 20px;
         padding-right: 20px;
+        /* margin-left: 0%; */
     }
     /* Atur jumlah card per baris menjadi 4 */
     .row-cols-sm-4 {
@@ -367,15 +397,15 @@ input[type="range"]::-moz-range-thumb {
 }
 
 @media (max-width: 1024px) {
-
-    #filter {
+    /* #filter {
         display: none;
-    }
+    } */
 
-    #katalog{
+    #katalog {
         padding: 0%;
         padding-left: 20px;
         padding-right: 20px;
+        /* margin-left: 0%; */
     }
     /* Atur jumlah card per baris menjadi 4 */
     .row-cols-sm-4 {
@@ -407,5 +437,3 @@ input[type="range"]::-moz-range-thumb {
         font-size: 12px;
     }
 }
-
-

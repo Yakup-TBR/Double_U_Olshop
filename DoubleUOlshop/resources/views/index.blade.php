@@ -18,27 +18,39 @@
 
         <div class="row" id="perbaikiRow">
             <div class="container col border-end" id="filter">
-                <form id="filterForm" action="{{ route('searchFilter') }}" method="GET">
+                <form id="filterForm" action="{{ route('filter') }}" method="GET">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <button type="submit" class="btn btn-primary mt-4 d-flex justify-content-center align-items-center">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.6875 7H20.3125M7.29167 12H17.7083M10.4167 17H14.5833" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>FILTER
+                        </button>
+                    </div>
                     <ul class="list-unstyled" id="perhiasan">
                         <h5>Perhiasan</h5>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Kalung" name="tipe[]" value="Kalung">
+                            <input class="form-check-input" type="checkbox" id="Kalung" name="tipe[]" value="Kalung"
+                                @if(is_array(request()->input('tipe')) && in_array('Kalung', request()->input('tipe'))) checked @endif>
                             <label class="form-check-label" for="Kalung">Kalung</label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Liontin" name="tipe[]" value="Liontin">
+                            <input class="form-check-input" type="checkbox" id="Liontin" name="tipe[]" value="Liontin"
+                                @if(is_array(request()->input('tipe')) && in_array('Liontin', request()->input('tipe'))) checked @endif>
                             <label class="form-check-label" for="Liontin">Liontin</label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Gelang" name="tipe[]" value="Gelang">
+                            <input class="form-check-input" type="checkbox" id="Gelang" name="tipe[]" value="Gelang"
+                                @if(is_array(request()->input('tipe')) && in_array('Gelang', request()->input('tipe'))) checked @endif>
                             <label class="form-check-label" for="Gelang">Gelang</label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Cincin" name="tipe[]" value="Cincin">
+                            <input class="form-check-input" type="checkbox" id="Cincin" name="tipe[]" value="Cincin"
+                                @if(is_array(request()->input('tipe')) && in_array('Cincin', request()->input('tipe'))) checked @endif>
                             <label class="form-check-label" for="Cincin">Cincin</label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Anting" name="tipe[]" value="Anting">
+                            <input class="form-check-input" type="checkbox" id="Anting" name="tipe[]" value="Anting"
+                                @if(is_array(request()->input('tipe')) && in_array('Anting', request()->input('tipe'))) checked @endif>
                             <label class="form-check-label" for="Anting">Anting</label>
                         </li>
                     </ul>
@@ -46,50 +58,55 @@
                     <ul class="list-unstyled" id="fashion">
                         <h5>Produk Fashion</h5>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Jam" name="tipe[]" value="Jam Fashion">
+                            <input class="form-check-input" type="checkbox" id="Jam" name="tipe[]" value="Jam Fashion"
+                                @if(is_array(request()->input('tipe')) && in_array('Jam Fashion', request()->input('tipe'))) checked @endif>
                             <label class="form-check-label" for="Jam">Jam Fashion</label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Gelang_Fashion" name="tipe[]" value="Gelang Fashion">
+                            <input class="form-check-input" type="checkbox" id="Gelang_Fashion" name="tipe[]" value="Gelang Fashion"
+                                @if(is_array(request()->input('tipe')) && in_array('Gelang Fashion', request()->input('tipe'))) checked @endif>
                             <label class="form-check-label" for="Gelang_Fashion">Gelang Fashion</label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Kuku_Palsu" name="tipe[]" value="Kuku Palsu">
+                            <input class="form-check-input" type="checkbox" id="Kuku_Palsu" name="tipe[]" value="Kuku Palsu"
+                                @if(is_array(request()->input('tipe')) && in_array('Kuku Palsu', request()->input('tipe'))) checked @endif>
                             <label class="form-check-label" for="Kuku_Palsu">Kuku Palsu</label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Strap_Phone" name="tipe[]" value="Strap Phone">
+                            <input class="form-check-input" type="checkbox" id="Strap_Phone" name="tipe[]" value="Strap Phone"
+                                @if(is_array(request()->input('tipe')) && in_array('Strap Phone', request()->input('tipe'))) checked @endif>
                             <label class="form-check-label" for="Strap_Phone">Strap Phone</label>
                         </li>
                     </ul>
 
-                    <!-- <ul class="list-unstyled" id="material">
-                        <h5>Material</h5>
+                    <ul class="list-unstyled" id="harga">
+                        <h5>Range Harga</h5>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Crystal" name="tipe[]" value="Crystal">
-                            <label class="form-check-label" for="Crystal">Crystal</label>
+                            <input class="form-check-input" type="checkbox" id="harga_bawah_50" name="harga[]" value="<50000"
+                                {{ in_array('<50000', request()->input('harga', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="harga_bawah_50">&lt; 50.000</label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Alloy_Rhodium" name="tipe[]" value="Alloy">
-                            <label class="form-check-label" for="Alloy_Rhodium">Alloy Rhodium</label>
+                            <input class="form-check-input" type="checkbox" id="harga_50_100" name="harga[]" value="50000-100000"
+                                {{ in_array('50000-100000', request()->input('harga', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="harga_50_100">50.000 - 100.000</label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Stainless_Steel" name="tipe[]" value="Stainless Steel">
-                            <label class="form-check-label" for="Stainless_Steel">Stainless Steel</label>
+                            <input class="form-check-input" type="checkbox" id="harga_100_150" name="harga[]" value="100000-150000"
+                                {{ in_array('100000-150000', request()->input('harga', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="harga_100_150">100.000 - 150.000</label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Silver" name="tipe[]" value="Silver">
-                            <label class="form-check-label" for="Silver">Silver</label>
+                            <input class="form-check-input" type="checkbox" id="harga_150_200" name="harga[]" value="150000-200000"
+                                {{ in_array('150000-200000', request()->input('harga', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="harga_150_200">150.000 - 200.000</label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Plastic" name="tipe[]" value="Plastic">
-                            <label class="form-check-label" for="Plastic">Plastic</label>
+                            <input class="form-check-input" type="checkbox" id="harga_atas_200" name="harga[]" value=">200000"
+                                {{ in_array('>200000', request()->input('harga', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="harga_atas_200">&gt; 200.000</label>
                         </li>
-                        <li class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Sintetic" name="tipe[]" value="Sintetic">
-                            <label class="form-check-label" for="Sintetic">Sintetic</label>
-                        </li>
-                    </ul> -->
+                    </ul>
                 </form>
             </div>
 
@@ -114,8 +131,8 @@
                                     <div class="container text-center" id="nama">
                                         <h5 class="card-title">{{ Str::limit($data['nama'], 43) }}</h5>
                                     </div>
-                                    <div class="container text-center" id="harga">
-                                        <h6 class="card-text">Harga: Rp. {{ $data['harga'] }}</h6>
+                                    <div class="container text-center harga-container" id="hargaCard">
+                                        <h6 class="card-text">Harga: Rp.{{ $data['harga'] }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -139,68 +156,23 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
-        // Filter Checkbox
-        document.addEventListener('DOMContentLoaded', function() {
-            const checkboxes = document.querySelectorAll('#filterForm input[type="checkbox"]');
-            const produkCards = document.querySelectorAll('#katalog .card');
-            const loadingElement = document.getElementById('loading');
+        window.addEventListener('scroll', function() {
+            const footer = document.getElementById('footer');
+            const floatingDiv = document.getElementById('filter');
+            const footerRect = footer.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
 
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    showLoading();
-                    setTimeout(() => {
-                        filterProducts();
-                        hideLoading();
-                    }, 500); // Simulasi delay untuk loading
-                });
-            });
-
-            function filterProducts() {
-                const selectedCategories = Array.from(checkboxes)
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => checkbox.value.toLowerCase());
-
-                let filteredCount = 0;
-
-                produkCards.forEach(card => {
-                    const cardCategory = card.dataset.category.toLowerCase();
-                    if (selectedCategories.length === 0 || selectedCategories.includes(cardCategory)) {
-                        card.style.display = 'block';
-                        card.style.order = filteredCount; // Tetapkan urutan sesuai dengan filter
-                        filteredCount++;
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-
-                // Atur ulang tata letak grid jika diperlukan
-                const katalogContainer = document.getElementById('katalog');
-                katalogContainer.style.display = 'none'; // Hilangkan sejenak untuk memastikan render ulang
-                katalogContainer.offsetHeight; // Memicu reflow
-                katalogContainer.style.display = ''; // Tampilkan kembali
+            // Cek jika footer mulai masuk viewport
+            if (footerRect.top <= viewportHeight) {
+                // Pindahkan div fixed mengikuti posisi footer
+                floatingDiv.style.position = 'absolute';
+                floatingDiv.style.top = `${window.scrollY + viewportHeight - footerRect.height}px`;
+            } else {
+                // Kembalikan div ke posisi fixed jika footer tidak di viewport
+                floatingDiv.style.position = 'fixed';
+                floatingDiv.style.top = '0';
             }
-
-            function showLoading() {
-                loadingElement.style.display = 'block';
-            }
-
-            function hideLoading() {
-                loadingElement.style.display = 'none';
-            }
-
-            // Call the filter function initially to ensure the correct state after page load
-            filterProducts();
         });
-
-
-
-        // ClickAble
-        function handleCardClick(element) {
-            const url = element.getAttribute('data-href');
-            if (url) {
-                window.location.href = url;
-            }
-        }
     </script>
     @endsection
 </body>

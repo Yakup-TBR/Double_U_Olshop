@@ -14,37 +14,61 @@
 <body>
     @extends('partial.navbar')
     @section('isi')
-    
+
     <section>
         <div class="container">
             <div class="row">
                 <div class="container col text-end" id="gambar">
-                    @if(isset($produk['gambar'][0]))
-                    <img src="{{ $produk['gambar'][0] }}" class="card-img-top" alt="Gambar Produk" style="width: 400px;">
+                    @if(isset($produk['gambar']) && count($produk['gambar']) > 0)
+                    <div id="carouselGambar" class="carousel slide" data-bs-ride="carousel">
+                        <!-- Carousel Indicators -->
+                        <div class="carousel-indicators">
+                            @foreach($produk['gambar'] as $index => $gambar)
+                            <button type="button" data-bs-target="#carouselGambar" data-bs-slide-to="{{ $index }}" class="@if($index === 0) active @endif" aria-current="true" aria-label="Slide {{ $index + 1 }}"></button>
+                            @endforeach
+                        </div>
+
+                        <div class="carousel-inner">
+                            @foreach($produk['gambar'] as $index => $gambar)
+                            <div class="carousel-item @if($index === 0) active @endif">
+                                <img src="{{ $gambar }}" class="d-block w-100 carousel-image" alt="Gambar Produk">
+                            </div>
+                            @endforeach
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselGambar" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselGambar" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                     <p class="id-hidden">{{ $produk['id'] }}</p>
                     @else
                     <p>Gambar tidak tersedia</p>
                     @endif
                 </div>
 
+
+
                 <div class="container col" id="isi">
                     <div class="nama">
                         <h1>{{ $produk['nama'] }}</h1>
                     </div>
-
                     <h2>Harga: RP. {{ $produk['harga'] }}</h2>
-                    <p>{!! nl2br(e($produk['deskripsi_pendek'])) !!}</p>
                     <br>
+                    <p>{!! nl2br(e($produk['deskripsi_pendek'])) !!}</p>
                     <p>{!! nl2br(e($produk['deskripsi_panjang'])) !!}</p>
                     <br>
 
-                    <div class="waSeller row align-items-center" id="waSeller">
-                        <div class="col">
-                            <p>Tertarik Beli? </p>
-                            <p>Chat dengan sellernya </p>
+                    <button class="d-flex justify-content-between align-items-center" id="buttonWA" onclick="window.open('https://wa.me/6285792391162', '_blank');">
+                        <div id="textButtonWA">
+                            <p class="text-start">Tertarik Beli?</p>
+                            <p class="text-start">Chat dengan sellernya</p>
                         </div>
-
-                        <div class="col" id="waIcon">
+                        <div>
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_206_3)">
                                     <path d="M0.853593 19.7606C0.852656 23.1213 1.73766 26.4029 3.42047 29.2953L0.692656 39.1778L10.8852 36.526C13.7043 38.0488 16.8629 38.8467 20.0727 38.8469H20.0811C30.6772 38.8469 39.3027 30.2914 39.3072 19.7756C39.3092 14.68 37.3111 9.88833 33.6808 6.28336C30.0511 2.67871 25.2238 0.692511 20.0803 0.690186C9.48297 0.690186 0.858124 9.24522 0.853749 19.7606" fill="url(#paint0_linear_206_3)" />
@@ -65,8 +89,10 @@
                                     </clipPath>
                                 </defs>
                             </svg>
+
                         </div>
-                    </div>
+                    </button>
+
                 </div>
             </div>
 

@@ -6,8 +6,7 @@
     box-sizing: border-box;
 }
 
-body,
-input {
+body {
     background-color: #d45179;
     font-family: "Poppins", sans-serif;
     height: 100%;
@@ -22,7 +21,9 @@ section {
 
 #gambar {
     color: #ffffff;
-    max-width: 42%;
+    max-width: 500px;
+    padding: 0%;
+    margin-left: 50px;
 }
 
 .id-hidden {
@@ -31,12 +32,23 @@ section {
 
 #isi {
     color: #ffffff;
-    padding-right: 0px;
+    margin-right: 10px;
+    font-family: "Poppins", sans-serif;
+    padding: 0px 20px;
 }
 
-h1 {
+#isi h1 {
     padding: 0%;
     margin-block-end: 0%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 36px;
+}
+
+#isi h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 31px;
 }
 
 /* Ganti warna fill dari path di dalam SVG */
@@ -44,22 +56,161 @@ h1 {
     fill: #ffffff; /* Ganti dengan warna yang diinginkan */
 }
 
-#waSeller {
+#buttonWA {
+    color: #ffffff;
     background-color: #60d669;
+    width: 250px;
     border-radius: 50px;
-    align-items: center;
-    padding: 0%;
-    width: 400px;
-    height: 50px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    transition:
+        background-color 0.3s,
+        transform 0.3s;
+}
+
+#buttonWA:hover {
+    transform: scale(1.05);
+}
+
+#buttonWA:active {
+    background-color: #4d9a53;
+}
+
+#textButtonWA {
+    font-weight: 400;
+    font-size: 15px;
     font-family: "Poppins", sans-serif;
-    padding-left: 15px;
 }
 
-#waSeller p {
-    margin-bottom: 3px;
+.text-start {
+    text-align: left;
+    margin: 0;
 }
 
-#waIcon {
-    display: flex;
-    text-align: end;
+@media (max-width: 992px) {
+    section .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #gambar {
+        width: 100%;
+        display: flex;
+        margin: 0%;
+        max-width: 400px;
+        padding: 0%;
+    }
+    section {
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+
+    #isi {
+        margin-top: 10px;
+        padding: 0px 20px;
+    }
+
+    #isi .nama,
+    h2 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 835px) {
+    section .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #gambar {
+        width: 100%;
+        display: flex;
+        margin: 0%;
+        max-width: 400px;
+        padding: 0%;
+    }
+    section {
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+
+    #isi {
+        margin-top: 10px;
+        padding: 0px 20px;
+    }
+
+    #isi .nama,
+    h2 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    section .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #gambar {
+        width: 100%;
+        display: flex;
+        margin: 0%;
+        max-width: 300px;
+        padding: 0%;
+    }
+    section {
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+
+    #isi {
+        margin-top: 10px;
+        padding: 0px 20px;
+    }
+
+    #isi .nama,
+    h2 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    section .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #gambar {
+        width: 100%;
+        display: flex;
+        margin: 0%;
+        max-width: 300px;
+        padding: 0%;
+    }
+    section {
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+
+    #isi {
+        margin-top: 10px;
+    }
+
+    #isi .nama,
+    h2 {
+        text-align: center;
+    }
 }

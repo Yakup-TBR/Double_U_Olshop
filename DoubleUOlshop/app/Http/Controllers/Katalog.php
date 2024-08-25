@@ -8,6 +8,7 @@ use Kreait\Firebase\ServiceAccount;
 use Kreait\Firebase\Firestore;
 use Illuminate\Support\Str;
 
+
 class Katalog extends Controller
 {
     public function index()
@@ -135,5 +136,72 @@ class Katalog extends Controller
         }
 
         return view('index', ['produk' => $data]);
+    }
+
+    // filter Checkbox
+    public function filter(Request $request)
+    {
+        // Mendapatkan input dari form
+        $tipe = $request->input('tipe', []);
+        $hargaRange = $request->input('harga', []);
+
+        // Mengonfigurasi koneksi ke Firestore
+        $firestore = (new Factory)
+            ->withServiceAccount(config_path('firebase-credential.json'))
+            ->createFirestore();
+
+        $stok = $firestore->database()->collection('produk');
+
+        // Memulai query Firestore
+        $query = $stok;
+        $filteredData = [];
+        $documents = $query->documents();
+
+        foreach ($documents as $document) {
+            if ($document->exists()) {
+                $produk = $document->data();
+
+                // Filter berdasarkan kategori (tipe)
+                if (!empty($tipe) && !in_array($produk['kategori'], $tipe)) {
+                    continue; // Lewati jika kategori tidak sesuai
+                }
+
+                // Filter berdasarkan harga (rentang)
+                if (!empty($hargaRange)) {
+                    $harga = $produk['harga']; // Asumsi field harga di Firestore adalah angka
+
+                    // Memeriksa apakah harga produk sesuai dengan rentang harga yang dipilih
+                    $hargaValid = false;
+                    foreach ($hargaRange as $range) {
+                        switch ($range) {
+                            case '<50000':
+                                if ($harga < 50000) $hargaValid = true;
+                                break;
+                            case '50000-100000':
+                                if ($harga >= 50000 && $harga <= 100000) $hargaValid = true;
+                                break;
+                            case '100000-150000':
+                                if ($harga >= 100000 && $harga <= 150000) $hargaValid = true;
+                                break;
+                            case '150000-200000':
+                                if ($harga >= 150000 && $harga <= 200000) $hargaValid = true;
+                                break;
+                            case '>200000':
+                                if ($harga > 200000) $hargaValid = true;
+                                break;
+                        }
+                    }
+
+                    if (!$hargaValid) {
+                        continue; // Lewati jika harga tidak sesuai
+                    }
+                }
+
+                // Jika lolos semua filter, tambahkan ke hasil
+                $filteredData[] = $produk;
+            }
+        }
+
+        return view('index', ['produk' => $filteredData]);
     }
 }
