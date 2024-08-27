@@ -37,9 +37,9 @@
                 </div>
 
                 <div class="col-end" id="menu">
-                    <a class="navbar-brand" href="{{ route('katalog') }}">Produk</a>
-                    <a class="navbar-brand" href="#">About</a>
-                    <a class="navbar-brand" href="#">Contact</a>
+                    <a class="navbar-brand" href="{{ route('katalog') }}">Product</a>
+                    <a class="navbar-brand" href="{{ route('about') }}">About</a>
+                    <a class="navbar-brand" href="{{ route('about') }}#contact">Contact</a>
                 </div>
 
 
@@ -68,7 +68,6 @@
                             </div>
 
                             <div class="offcanvas-body text-start pt-2">
-
 
                                 <ul class="list-unstyled" id="perhiasan">
                                     <h5>Perhiasan</h5>
@@ -163,7 +162,18 @@
 
                     <div class="col text-end" id="searchMobile">
                         <div class="container d-flex justify-content-end align-items-center" id="searchcon">
-                            <img src="{{ asset('img/icon_search.png') }}" alt="icon_search">
+                            <img src="{{ asset('img/icon_search.png') }}" alt="icon_search" id="toggleSidebar" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSearch" aria-controls="offcanvasSearch">
+                        </div>
+                    </div>
+
+                    <!-- Offset searchMobile -->
+                    <div class="offcanvas offcanvas-center" tabindex="-1" id="offcanvasSearch" aria-labelledby="offcanvasSearchLabel">
+                        <div class="col-center" id="searchContainerMobile">
+                            <div class="search">
+                                <form action="{{ route('searchBox') }}" method="GET">
+                                    <input class="form-control" id="searchInput" name="search" type="search" placeholder="Cari produk pilihanmu" aria-label="Cari">
+                                </form>
+                            </div>
                         </div>
                     </div>
 
@@ -175,7 +185,7 @@
                                 <a class="navbar-brand m-0" href="{{ route('katalog') }}">Produk</a>
                             </div>
                             <div class="col text-center">
-                                <a class="navbar-brand m-0" href="#">About</a>
+                                <a class="navbar-brand m-0" href="{{ route('about') }}">About</a>
                             </div>
                             <div class="col text-end">
                                 <a class="navbar-brand m-0" href="#">Contact</a>

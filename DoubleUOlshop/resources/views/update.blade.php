@@ -14,7 +14,7 @@
 
 <body>
     <nav class="navbar sticky-top">
-        <div class="container-fluid d-flex justify-content-between align-items-center" id="isiNavbar">
+        <div class="container-fluid justify-content-between align-items-center" id="isiNavbar">
             <div class="d-flex align-items-center" id="logo">
                 <img src="{{ asset('img/logo_juli_jewelry.png') }}" alt="Logo KosTel" class="me-2">
                 <a class="navbar-brand" href="#">Juli Jewelry</a>
@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-            <div class="d-flex justify-content-end">
+            <div class="justify-content-end">
                 <button id="buttonBaru" type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#productModal">+ Produk Baru</button>
 
                 <svg width="45" height="45" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -53,10 +53,13 @@
                 </div>
                 <div class="offcanvas-body">
                     <div class="container">
+                        <button id="buttonBaruMobile" type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#productModal">+ Produk Baru</button>
+
+
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button type="submit" class="btn btn-danger" id="buttonLogOut">
-                                <svg width="50" height="39" viewBox="0 0 50 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="35" height="35  " viewBox="0 0 50 39" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M10.4167 34.125C9.27083 34.125 8.29028 33.807 7.475 33.1711C6.65972 32.5352 6.25139 31.7698 6.25 30.875V8.125C6.25 7.23125 6.65833 6.46642 7.475 5.8305C8.29167 5.19458 9.27222 4.87608 10.4167 4.875H25V8.125H10.4167V30.875H25V34.125H10.4167ZM33.3333 27.625L30.4687 25.2688L35.7812 21.125H18.75V17.875H35.7812L30.4687 13.7312L33.3333 11.375L43.75 19.5L33.3333 27.625Z" fill="white" />
                                 </svg>
                                 Sign Out
@@ -66,14 +69,12 @@
                 </div>
             </div>
 
-
-
         </div>
     </nav>
 
 
     <section>
-        <div style="padding: 0;">
+        <div style="padding: 0; overflow-x: auto;">
 
             <table class="table table-striped table-hover">
                 <thead>
@@ -116,7 +117,7 @@
                                 </svg>
                             </button>
 
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapustModal" data-nama="{{ $data['nama'] }}" data-id="{{ $data['id'] }}">
+                            <button type="button" class="btn btn-danger mb-1" data-bs-toggle="modal" data-bs-target="#hapustModal" data-nama="{{ $data['nama'] }}" data-id="{{ $data['id'] }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                     <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3"></path>
                                 </svg>
@@ -135,6 +136,7 @@
         </div>
     </section>
 
+
     <!-- Modal Pop Up Tambah Produk -->
     <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -144,6 +146,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+
+
                     <form id="productForm" action="{{ route('produk.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
@@ -207,7 +211,7 @@
                             <small class="form-text text-muted">Pilih hingga 10 gambar.</small>
                         </div>
                         <div class="mb-3" id="imagePreviewContainer"></div>
-                        <button type="button" class="btn btn-secondary" id="addMoreImagesButton" style="display: none;" onclick="addMoreImages()">Tambah Gambar</button>
+                        <button type="button" class="btn btn-secondary" id="addMoreImagesButton" style="display: none;" onclick="addMoreImages()">Ganti Gambar</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -291,8 +295,8 @@
                             <input type="file" class="form-control" id="gambar" name="gambar[]" multiple accept="image/*" onchange="previewImages()">
                             <small class="form-text text-muted">Pilih hingga 10 gambar.</small>
                         </div>
-                        <div class="mb-3 img-thumbnail rounded mx-auto d-block" id="editImagePreviewContainer"></div>
-                        <button type="button" class="btn btn-secondary" id="addMoreImagesButton" style="display: none;" onclick="addMoreImages()">Tambah Gambar</button>
+                        <div class="mb-3" id="editImagePreviewContainer"></div>
+                        <button type="button" class="btn btn-secondary" id="addMoreImagesButton" style="display: none;" onclick="addMoreImages()">Ganti Gambar</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -468,10 +472,6 @@
                 }
             });
         });
-
-
-
-
 
         // Modal Hapus
         document.addEventListener('DOMContentLoaded', function() {

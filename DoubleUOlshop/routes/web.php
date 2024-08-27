@@ -59,7 +59,10 @@ Route::get('/deleteDetail/{id}', [CrudController::class, 'deleteDetail'])->name(
 // CRUD | Hapus 1 Produk di Update
 Route::get('/delete/{id}', [CrudController::class, 'deleteOne'])->name('produk.deleteOne');
 
-
+// ABOUT
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
 
 // Test Navbar
 Route::get('/navbar', function () {

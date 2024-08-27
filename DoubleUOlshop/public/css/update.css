@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-* {
+body * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,34 +7,36 @@
 
 body,
 input {
-    background-color: #F4E5E5;
+    background-color: #f4e5e5;
     font-family: "Poppins", sans-serif;
     height: 100%;
     width: 100%;
 }
 
-section{
-    background-color: #F4E5E5;
+section {
+    background-color: #f4e5e5;
 }
 
 /* Navbar start */
 
-.navbar, #isiNavbar {
+.navbar,
+#isiNavbar {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 80px;
 }
 
-.navbar{
+.navbar {
     padding: 0px 5%;
-    background-color: #F4E5E5;
+    background-color: #f4e5e5;
 }
 
 #logo {
     flex-shrink: 1;
     display: flex;
     align-items: center;
+    margin: 0%;
 }
 
 #logo img {
@@ -43,12 +44,11 @@ section{
     height: auto;
 }
 
-#isiNavbar a{
+#isiNavbar a {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-size: 23px;
 }
-
 
 #searchContainer {
     width: 80%;
@@ -67,36 +67,37 @@ section{
 }
 
 #buttonBaru {
-    background-color: #D45179;
+    background-color: #d45179;
     border: none;
     margin-right: 30px;
 }
 
-#offcanvasExample{
-    background-color: #E8BFBF;
+#offcanvasExample {
+    background-color: #e8bfbf;
     height: 20%;
     /* margin-top: 80px; */
     border-bottom-left-radius: 30px;
     width: 35vh;
+}
 
+#buttonBaruMobile {
+    display: none;
 }
 
 #buttonLogOut {
-    background-image: linear-gradient(90deg, #E24D39, #C85343);
+    background-image: linear-gradient(90deg, #e24d39, #c85343);
     border: none; /* Menghapus border bawaan */
     width: 200px;
     color: white; /* Pastikan teks tetap terlihat */
 }
 
 #buttonLogOut:hover {
-    background-image: linear-gradient(90deg, #E24D39, #C85343); /* Mengubah arah gradien saat hover */
+    background-image: linear-gradient(90deg, #e24d39, #c85343); /* Mengubah arah gradien saat hover */
 }
-
 
 /* Navbar end */
 
-
-#gambar-tabel{
+#gambar-tabel {
     width: 10vh;
     height: 10vh;
 }
@@ -109,24 +110,22 @@ section{
     padding-left: 20px;
 }
 
-.id-hidden{
+.id-hidden {
     display: none;
 }
 
-
-
-#confirmAddButton{
-    background-color: #D45179;
+#confirmAddButton {
+    background-color: #d45179;
     border: none;
 }
 
-#buttonPerbarui{
-    background-color: #D45179;
+#buttonPerbarui {
+    background-color: #d45179;
     border: none;
 }
 
-#buttonHapus{
-    background-color: #DC3545;
+#buttonHapus {
+    background-color: #dc3545;
     border: none;
 }
 
@@ -134,11 +133,73 @@ textarea {
     resize: vertical; /* Hanya memungkinkan perubahan ukuran secara vertikal */
 }
 
+#editImagePreviewContainer{
+    height: 100px;
+    width: 100px;
+    display: flex;
+}
+
+
 /* Mengatur input agar lebar menyesuaikan kontainer */
-input[type="text"], input[type="number"] {
+input[type="text"],
+input[type="number"] {
     width: 100%;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1440px) {
+    .navbar {
+        width: 100%;
+        margin: 0%;
+    }
 
+    #logo a {
+        display: none;
+    }
+}
+
+@media (max-width: 1040px) {
+    #buttonBaru {
+        display: none;
+    }
+
+    #offcanvasExample {
+        height: 30vh;
+        width: 35vh;
+    }
+
+    #buttonBaruMobile {
+        background-color: #d45179;
+        border: none;
+        display: block;
+        width: 170px;
+        height: 47px;
+        margin-bottom: 20px;
+        padding-left: 0%;
+        padding-right: 0%;
+        font-family: "Poppins", sans-serif;
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+    .offcanvas-body {
+        justify-content: center;
+        align-items: center;
+    }
+
+    #buttonLogOut {
+        background-image: linear-gradient(90deg, #e24d39, #c85343);
+        border: none;
+        width: 170px;
+        height: 47px;
+        color: white;
+        font-family: "Poppins", sans-serif;
+        font-size: 17px;
+        font-weight: 500;
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+
+    #buttonLogOut:hover {
+        background-image: linear-gradient(90deg, #e24d39, #c85343); /* Mengubah arah gradien saat hover */
+    }
 }

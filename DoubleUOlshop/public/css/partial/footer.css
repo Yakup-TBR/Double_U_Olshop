@@ -43,12 +43,11 @@ footer #logo img {
 }
 
 #follow {
-    max-width: 28%;
     padding-top: 17px;
 }
 
 #instagram,
-#tokopedia,
+#whatsapp,
 #shopee,
 #tiktok {
     text-decoration: none;

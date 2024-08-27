@@ -58,6 +58,10 @@ function addMoreImages() {
 
 
 
+
 // Tombol Konfirmasi Ingin menambahkan produk di modal
 
 
+
+
+// Resizeable kolom

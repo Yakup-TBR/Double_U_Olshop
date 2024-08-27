@@ -112,11 +112,10 @@ navbar {
 }
 
 .offcanvas-header button:active {
-    background-color: #cd6081; 
+    background-color: #cd6081;
     border-color: #ffffff;
-    transform: scale(0.95); 
+    transform: scale(0.95);
 }
-
 
 #offcanvasExample {
     background-color: #d45179;
@@ -127,198 +126,9 @@ navbar {
 }
 
 /* CSS untuk checkbox kustom */
-input[type="checkbox"] {
+/* input[type="checkbox"] {
     color: green;
-}
-
-@media (max-width: 480px) {
-    #navnya {
-        display: none;
-    }
-
-    #navbar {
-        padding: 0%;
-    }
-
-    #navbarMobile {
-        display: block;
-    }
-
-    #navbarMobileAtas {
-        display: flex;
-        /* background-color: aquamarine; */
-        padding-top: 10px;
-    }
-
-    #sidebar {
-        display: flex;
-    }
-
-    #siderbarcon {
-        display: flex;
-        align-items: center;
-    }
-
-    #sidebar img {
-        width: 30px;
-        cursor: pointer;
-    }
-
-    #logoMobile img {
-        width: 70px;
-        height: auto;
-    }
-
-    #searchMobile {
-        display: flex;
-    }
-
-    #searchcon {
-        display: flex;
-        justify-content: end;
-        align-items: center;
-    }
-
-    #searchMobile img {
-        width: 35px;
-    }
-
-    #navbarMobileBawah {
-        justify-content: center;
-    }
-
-    /* navbar end, sidebar start */
-}
-
-@media (max-width: 768px) {
-    #navnya {
-        display: none;
-    }
-
-    #navbar {
-        padding: 0%;
-    }
-
-    #navbarMobile {
-        display: block;
-    }
-
-    #navbarMobileAtas {
-        display: flex;
-        /* background-color: aquamarine; */
-        padding-top: 10px;
-    }
-
-    #siderbarcon {
-        display: flex;
-        align-items: center;
-    }
-
-    #sidebar img {
-        width: 30px;
-        cursor: pointer;
-    }
-
-    #logoMobile img {
-        width: 70px;
-        height: auto;
-    }
-
-    #searchMobile {
-        display: flex;
-    }
-
-    #searchcon {
-        display: flex;
-        justify-content: end;
-        align-items: center;
-    }
-
-    #searchMobile img {
-        width: 35px;
-    }
-
-    #navbarMobileBawah {
-        justify-content: center;
-        padding: 0%;
-    }
-
-    #menu {
-        display: flex;
-        justify-content: space-around;
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-bottom: 10px;
-    }
-
-    /* navbar end, sidebar start */
-}
-
-@media (max-width: 992px) {
-    #navnya {
-        display: none;
-    }
-
-    #navbar {
-        padding: 0%;
-    }
-
-    #navbarMobile {
-        display: block;
-    }
-
-    #navbarMobileAtas {
-        display: flex;
-        /* background-color: aquamarine; */
-        padding-top: 10px;
-    }
-
-    #sidebar {
-        display: flex;
-    }
-
-    #siderbarcon {
-        display: flex;
-        align-items: center;
-    }
-
-    #sidebar img {
-        width: 30px;
-        cursor: pointer;
-    }
-
-    #logoMobile img {
-        width: 70px;
-        height: auto;
-    }
-
-    #searchMobile {
-        display: flex;
-    }
-
-    #searchcon {
-        display: flex;
-        justify-content: end;
-        align-items: center;
-    }
-
-    #searchMobile img {
-        width: 35px;
-    }
-
-    #navbarMobileBawah {
-        justify-content: center;
-        padding: 0%;
-    }
-
-    #menu {
-        display: flex;
-        justify-content: space-around;
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-bottom: 10px;
-    }
-}
+} */
 
 @media (max-width: 1200px) {
     #logo {
@@ -426,4 +236,224 @@ input[type="checkbox"] {
         line-height: normal;
         margin-left: 15px; /* spacing between menu items */
     }
+}
+
+@media (max-width: 992px) {
+    #navnya {
+        display: none;
+    }
+
+    #navbar {
+        padding: 0%;
+    }
+
+    #navbarMobile {
+        display: block;
+    }
+
+    #navbarMobileAtas {
+        display: flex;
+        /* background-color: aquamarine; */
+        padding-top: 10px;
+    }
+
+    #sidebar {
+        display: flex;
+    }
+
+    #siderbarcon {
+        display: flex;
+        align-items: center;
+    }
+
+    #sidebar img {
+        width: 30px;
+        cursor: pointer;
+    }
+
+    #logoMobile img {
+        width: 70px;
+        height: auto;
+    }
+
+    #searchMobile {
+        display: flex;
+    }
+
+    #searchcon {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+
+    #searchContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    #searchMobile img {
+        width: 35px;
+    }
+
+    #navbarMobileBawah {
+        justify-content: center;
+        padding: 0%;
+    }
+
+    #menu {
+        display: flex;
+        justify-content: space-around;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 10px;
+    }
+
+    #offcanvasSearch {
+        height: 50vh;
+        background-color: transparent;
+        color: #ffffff;
+        right: 0%;
+    }
+
+    #searchContainerMobile {
+        display: flex;
+        height: 40px;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        background: #fff;
+        margin: 0px 19px;
+    }
+    
+    #searchContainerMobile .form-control {
+        /* padding-left: 20px; */
+        height: 40px;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    #navnya {
+        display: none;
+    }
+
+    #navbar {
+        padding: 0%;
+    }
+
+    #navbarMobile {
+        display: block;
+    }
+
+    #navbarMobileAtas {
+        display: flex;
+        /* background-color: aquamarine; */
+        padding-top: 10px;
+    }
+
+    #siderbarcon {
+        display: flex;
+        align-items: center;
+    }
+
+    #sidebar img {
+        width: 30px;
+        cursor: pointer;
+    }
+
+    #logoMobile img {
+        width: 70px;
+        height: auto;
+    }
+
+    #searchMobile {
+        display: flex;
+    }
+
+    #searchcon {
+        justify-content: center;
+        align-items: center;
+    }
+
+    #searchMobile img {
+        width: 35px;
+    }
+
+    #navbarMobileBawah {
+        justify-content: center;
+        padding: 0%;
+    }
+
+    #menu {
+        display: flex;
+        justify-content: space-around;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 10px;
+    }
+
+    /* navbar end, sidebar start */
+}
+
+@media (max-width: 480px) {
+    #navnya {
+        display: none;
+    }
+
+    #navbar {
+        padding: 0%;
+    }
+
+    #navbarMobile {
+        display: block;
+    }
+
+    #navbarMobileAtas {
+        display: flex;
+        /* background-color: aquamarine; */
+        padding-top: 10px;
+    }
+
+    #sidebar {
+        display: flex;
+    }
+
+    #siderbarcon {
+        display: flex;
+        align-items: center;
+    }
+
+    #sidebar img {
+        width: 30px;
+        cursor: pointer;
+    }
+
+    #logoMobile img {
+        width: 70px;
+        height: auto;
+    }
+
+    #searchMobile {
+        display: flex;
+    }
+
+    #searchcon {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+
+    #searchMobile img {
+        width: 35px;
+    }
+
+    #navbarMobileBawah {
+        justify-content: center;
+    }
+
+    /* navbar end, sidebar start */
 }

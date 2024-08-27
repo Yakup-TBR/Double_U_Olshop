@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    height: 100vh;
+}
+
+section {
+    padding: 20px 100px;
+}
+
+#aboutContent {
+    /* background-color: cadetblue; */
+    color: #ffffff;
+    position: relative;
+    margin: 0;
+    display: flex;
+}
+
+#aboutContentKiri {
+    width: 450px;
+}
+
+#aboutContent img {
+    height: 500px;
+    /* width: 450px; */
+    width: 100%;
+}
+
+#aboutContent h1 {
+    font-family: "Noto Serif JP", serif;
+    font-size: 90px;
+    font-weight: 400;
+    position: absolute;
+    top: 5%;
+    left: 28%;
+    letter-spacing: 30;
+}
+
+#aboutContent p {
+    font-family: "Poppins", sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    margin-top: 23%;
+}
+#mapContent {
+    color: #ffffff;
+}
+
+#mapContent h2 {
+    font-family: "Noto Serif JP", serif;
+    font-size: 63px;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+#contactContent {
+    color: #ffffff;
+    justify-content: center;
+    text-align: center;
+}
+
+#contactContent h2 {
+    font-family: "Noto Serif JP", serif;
+    font-size: 63px;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+#contactContent h3 {
+    font-family: "Poppins", sans-serif;
+    font-size: 38px;
+    font-weight: 400;
+    font-style: italic;
+    color: #ffffff;
+}
+
+#rowContact {
+    color: #ffffff;
+    display: flex;
+    justify-content: center; /* Menengahkan secara horizontal */
+    align-items: center; /* Menengahkan secara vertikal */
+}
+
+#shopeeImg{
+    width: 80px;
+    height: 80px;
+}
+
+
+@media (max-width: 1440px) {
+}
