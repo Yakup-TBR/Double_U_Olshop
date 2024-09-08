@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    z-index: 1000;
+    /* z-index: 1; */
 }
 
 .wrapper {
@@ -29,6 +29,7 @@ navbar {
     align-items: center;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
+    z-index: 1;
 }
 
 .navbar::after {

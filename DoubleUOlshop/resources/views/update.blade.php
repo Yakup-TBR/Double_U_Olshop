@@ -222,6 +222,26 @@
         </div>
     </div>
 
+    <!-- Modal Konfirmasi Tambah -->
+    <div class="modal fade" id="konfirmasiTambahModal" tabindex="-1" aria-labelledby="konfirmasiTambahModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="confirmTambah">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="konfirmasiTambahModalLabel">Konfirmasi Tambah Produk</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah Anda yakin ingin menambahkan produk <b id="produkNamaTambah"></b> ke dalam database?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" id="confirmTambahButton">Tambahkan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Modal Edit -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -307,6 +327,25 @@
         </div>
     </div>
 
+    <!-- Modal Konfirmasi Edit -->
+    <div class="modal fade" id="editConfirmModal" tabindex="-1" aria-labelledby="editConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editConfirmModalLabel">Konfirmasi Perubahan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Apakah Anda yakin ingin memperbarui produk ini?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button id="confirmEditButton" type="button" class="btn btn-primary">Perbarui</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Modal Hapus -->
     <div class="modal fade" id="hapustModal" tabindex="-1" aria-labelledby="hapustModalLabel" aria-hidden="true">
@@ -335,7 +374,7 @@
             </div>
         </div>
     </div>
-    </div>
+
 
     <script>
         // Modal Tambah Produk
@@ -356,7 +395,7 @@
                 valid = false; // Hentikan pengiriman form jika validasi gagal
             }
 
-            // Validasi ukuran file (MUNGKIN AKAN DIKECILKAN - Controller Juga)
+            // Validasi ukuran file
             for (var i = 0; i < gambarFiles.length; i++) {
                 if (gambarFiles[i].size > 10 * 1024 * 1024) { // 10 MB
                     alert('Ukuran file ' + gambarFiles[i].name + ' melebihi batas 10 MB.');
@@ -364,15 +403,26 @@
                 }
             }
 
-            // Konfirmasi sebelum mengirim form jika semua validasi lolos
-            if (valid && confirm('Apakah Anda yakin ingin menambahkan produk ini?')) {
-                document.getElementById('productForm').submit();
+            // Jika validasi berhasil, tampilkan modal konfirmasi
+            if (valid) {
+                var modalTitle = document.getElementById('produkNamaTambah');
+                modalTitle.textContent = nama || 'Produk tidak ditemukan';
+                var konfirmasiTambahModal = new bootstrap.Modal(document.getElementById('konfirmasiTambahModal'));
+                konfirmasiTambahModal.show();
             }
         });
+
+        document.getElementById('confirmTambahButton').addEventListener('click', function() {
+            document.getElementById('productForm').submit();
+        });
+
 
         // Modal Edit
         document.addEventListener('DOMContentLoaded', function() {
             var editModal = document.getElementById('editModal');
+
+            var confirmEditButton = document.getElementById('confirmEditButton');
+
             editModal.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget;
                 var id = button.getAttribute('data-id');
@@ -467,9 +517,15 @@
                     }
                 }
 
-                if (valid && confirm('Apakah Anda yakin ingin memperbarui produk ini?')) {
-                    document.getElementById('editForm').submit();
+                if (valid) {
+                    var editConfirmModal = new bootstrap.Modal(document.getElementById('editConfirmModal'));
+                    editConfirmModal.show();
                 }
+            });
+
+            // Submit form jika tombol konfirmasi di modal ditekan
+            confirmEditButton.addEventListener('click', function() {
+                document.getElementById('editForm').submit();
             });
         });
 

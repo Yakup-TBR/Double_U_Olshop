@@ -57,7 +57,7 @@
                     <div class="nama">
                         <h1>{{ $produk['nama'] }}</h1>
                     </div>
-                    <h2>Harga: RP. {{ $produk['harga'] }}</h2>
+                    <h2 id="hargaProduk">RP. {{ $produk['harga'] }}</h2>
                     <br>
                     <p>{!! nl2br(e($produk['deskripsi_pendek'])) !!}</p>
                     <p>{!! nl2br(e($produk['deskripsi_panjang'])) !!}</p>
@@ -101,6 +101,9 @@
 
     @endsection
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('js/detail.js') }}"> </script>
+
+
 </body>
 
 </html>

@@ -108,15 +108,13 @@
                         </li>
                     </ul>
                 </form>
+                <div class="container" id="kosong"></div>
             </div>
 
             <div class="container col" id="katalog">
-                <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-1" id="perbaiki">
-                    <div id="loading" style="display: none;">
-                        <div class="spinner-border text-primary" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
+
+
+                <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-1" id="perbaiki">
                     @if(count($produk) > 0)
                     @foreach($produk as $data)
                     <form action="{{ route('katalog') }}" method="get">
@@ -129,10 +127,11 @@
                                 @endif
                                 <div class="card-body" id="isiCard">
                                     <div class="container text-center" id="nama">
-                                        <h5 class="card-title">{{ Str::limit($data['nama'], 43) }}</h5>
+                                        <h5 class="card-title long-text">{{ Str::limit($data['nama'], 43) }}</h5>
+                                        <h5 class="card-title short-text">{{ Str::limit($data['nama'], 20) }}</h5>
                                     </div>
                                     <div class="container text-center harga-container" id="hargaCard">
-                                        <h6 class="card-text">Harga: Rp.{{ $data['harga'] }}</h6>
+                                        <h6 class="card-text">Rp.{{ $data['harga'] }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -140,11 +139,17 @@
                     </form>
                     @endforeach
                     @else
-                    <tr>
-                        <p>Data Tidak Ditemukan</p>
-                    </tr>
+                    <p>Data Tidak Ditemukan</p>
                     @endif
                 </div>
+
+                <!-- Load More Button -->
+                <div class="text-center my-4">
+                    <button id="loadMoreBtn" class="btn btn-primary" data-url="#">Load More</button>
+                </div>
+
+
+
             </div>
 
 
@@ -156,24 +161,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
-        window.addEventListener('scroll', function() {
-            const footer = document.getElementById('footer');
-            const floatingDiv = document.getElementById('filter');
-            const footerRect = footer.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-
-            // Cek jika footer mulai masuk viewport
-            if (footerRect.top <= viewportHeight) {
-                // Pindahkan div fixed mengikuti posisi footer
-                floatingDiv.style.position = 'absolute';
-                floatingDiv.style.top = `${window.scrollY + viewportHeight - footerRect.height}px`;
-            } else {
-                // Kembalikan div ke posisi fixed jika footer tidak di viewport
-                floatingDiv.style.position = 'fixed';
-                floatingDiv.style.top = '0';
-            }
-        });
+     
     </script>
+
+
     @endsection
 </body>
 

@@ -7,6 +7,7 @@ use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
 use Kreait\Firebase\Firestore;
 use Illuminate\Support\Str;
+use Google\Cloud\Firestore\V1\FirestoreClient;
 
 
 class Katalog extends Controller
@@ -18,10 +19,9 @@ class Katalog extends Controller
         $firestore = $factory->createFirestore();
         $database = $firestore->database();
         $stok = $database->collection('produk');
-        $documents = $stok->documents();
 
-        // Debugging: Tampilkan data dokumen yang diambil
-        // dd($documents);
+        // Ambil hanya 15 dokumen awal
+        $documents = $stok->limit(7)->documents();
 
         $data = [];
         foreach ($documents as $document) {
@@ -30,9 +30,7 @@ class Katalog extends Controller
             }
         }
 
-        // Debugging: Tampilkan data yang akan dikirim ke view
-        // dd($data);
-
+        // Kirim data ke view
         return view('index', ['produk' => $data]);
     }
 

@@ -6,9 +6,10 @@ body {
     min-height: 100vh;
 }
 
-body{
+body {
     background-color: #d45179;
 }
+/* ---------- Navbar Start ----------*/
 
 
 /* ---navbar end, isi start--- */
@@ -26,12 +27,13 @@ section {
 #filter {
     max-width: 17%;
     color: #ffffff;
-    /* position: fixed; */
+    position: fixed;
     width: 100%;
     padding: 0%;
     margin: 0%;
     min-height: 100vh;
     z-index: 1;
+    /* background-color: #17a2b8; */
 }
 
 #filter button {
@@ -76,10 +78,13 @@ section {
     box-shadow: 0 35px rgba(0, 0, 0, 0.1);
 }
 
+#filter ul{
+    padding-bottom: 25      px;
+}
+
 .price-input {
     width: 100%;
     display: flex;
-    /* background-color: greenyellow; */
     padding-left: 50px;
 }
 
@@ -169,7 +174,7 @@ input[type="range"]::-moz-range-thumb {
     padding-block-end: 0%;
     padding-left: 0%;
     padding-right: 0%;
-    /* margin-left: 17%; */
+    margin-left: 17%;
     padding-top: 10px;
 }
 
@@ -224,13 +229,11 @@ input[type="range"]::-moz-range-thumb {
     max-height: 40px;
     display: flex;
     padding-top: 5px;
-    padding-top: 5px;
 }
 
 #katalog #harga {
     background-color: transparent;
     display: flex;
-    padding-top: 5px;
     min-height: 26px;
     max-height: 26px;
 }
@@ -244,11 +247,16 @@ input[type="range"]::-moz-range-thumb {
     font-size: 18px;
     margin: auto;
     font-weight: normal;
-    /* padding-top:5px; */
     font-family: "Poppins", sans-serif;
 }
 
+#katalog .short-text{
+    display: none;
+}
+
 #katalog h6 {
+    padding-top: 5px;
+
     font-size: 17px;
     margin: auto;
     font-weight: bold;
@@ -265,6 +273,169 @@ input[type="range"]::-moz-range-thumb {
     padding-bottom: 20;
 } */
 
+@media (max-width: 1024px) {
+    /* #filter {
+        display: none;
+    } */
+
+    #katalog {
+        padding: 0%;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 16%;
+    }
+    /* Atur jumlah card per baris menjadi 4 */
+
+    /* Atur ukuran gambar dalam card */
+    .card-img-top {
+        min-height: 200px;
+        max-height: 200px;
+    }
+
+    /* Atur layout isi card */
+    #isiCard {
+        padding: 10px;
+        min-height: 70px;
+    }
+
+    /* Atur font-size dan ukuran struktur lainnya */
+    #katalog h5 {
+        font-size: 18px;
+    }
+
+    #katalog h6 {
+        font-size: 17px;
+    }
+
+    #katalog p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 992px) {
+    #filter {
+        display: none;
+    }
+
+    #katalog {
+        padding: 0%;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 0%;
+    }
+    /* Atur jumlah card per baris menjadi 4 */
+    .row-cols-sm-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Atur ukuran gambar dalam card */
+    .card-img-top {
+        min-height: 200px;
+        max-height: 200px;
+    }
+
+    /* Atur layout isi card */
+    #isiCard {
+        padding: 10px;
+        min-height: 70px;
+    }
+
+    /* Atur font-size dan ukuran struktur lainnya */
+    #katalog h5 {
+        font-size: 18px;
+    }
+
+    #katalog h6 {
+        font-size: 17px;
+    }
+
+    #katalog p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 830px){
+    #katalog .long-text{
+        display: none;
+    }
+
+    #katalog .short-text{
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    #katalog .long-text{
+        display: block;
+    }
+
+    #katalog .short-text{
+        display: none;
+    }
+}
+
+@media (max-width: 780px) {
+    #filter {
+        display: none;
+    }
+
+    #katalog {
+        padding: 0%;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 0%;
+    }
+    /* Atur jumlah card per baris menjadi 4 */
+    .row-cols-sm-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Atur ukuran gambar dalam card */
+    .card-img-top {
+        min-height: 200px;
+        max-height: 200px;
+    }
+
+    /* Atur layout isi card */
+    #isiCard {
+        padding: 10px;
+        min-height: 70px;
+    }
+
+    /* Atur font-size dan ukuran struktur lainnya */
+    #katalog h5 {
+        font-size: 18px;
+    }
+
+    #katalog h6 {
+        font-size: 17px;
+    }
+
+    #katalog p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 632px) {
+    #katalog .long-text{
+        display: none;
+    }
+
+    #katalog .short-text{
+        display: block;
+    }
+}
+
+@media (max-width: 575px) {
+    #katalog .long-text{
+        display: block;
+    }
+
+    #katalog .short-text{
+        display: none;
+    }
+}
+
 @media (max-width: 480px) {
     #filter {
         display: none;
@@ -274,7 +445,7 @@ input[type="range"]::-moz-range-thumb {
         padding: 0%;
         padding-left: 20px;
         padding-right: 20px;
-        /* margin-left: 0%; */
+        margin-left: 0%;
     }
 
     /* Atur jumlah card per baris menjadi 2 */
@@ -312,128 +483,8 @@ input[type="range"]::-moz-range-thumb {
     }
 }
 
-@media (max-width: 780px) {
-    #filter {
-        display: none;
-    }
 
-    #katalog {
-        padding: 0%;
-        padding-left: 20px;
-        padding-right: 20px;
-        /* margin-left: 0%; */
-    }
-    /* Atur jumlah card per baris menjadi 4 */
-    .row-cols-sm-4 {
-        grid-template-columns: repeat(4, 1fr);
-    }
 
-    /* Atur ukuran gambar dalam card */
-    .card-img-top {
-        min-height: 200px;
-        max-height: 200px;
-    }
 
-    /* Atur layout isi card */
-    #isiCard {
-        padding: 10px;
-        min-height: 70px;
-    }
 
-    /* Atur font-size dan ukuran struktur lainnya */
-    #katalog h5 {
-        font-size: 18px;
-    }
 
-    #katalog h6 {
-        font-size: 17px;
-    }
-
-    #katalog p {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 992px) {
-    #filter {
-        display: none;
-    }
-
-    #katalog {
-        padding: 0%;
-        padding-left: 20px;
-        padding-right: 20px;
-        /* margin-left: 0%; */
-    }
-    /* Atur jumlah card per baris menjadi 4 */
-    .row-cols-sm-4 {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    /* Atur ukuran gambar dalam card */
-    .card-img-top {
-        min-height: 200px;
-        max-height: 200px;
-    }
-
-    /* Atur layout isi card */
-    #isiCard {
-        padding: 10px;
-        min-height: 70px;
-    }
-
-    /* Atur font-size dan ukuran struktur lainnya */
-    #katalog h5 {
-        font-size: 18px;
-    }
-
-    #katalog h6 {
-        font-size: 17px;
-    }
-
-    #katalog p {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 1024px) {
-    /* #filter {
-        display: none;
-    } */
-
-    #katalog {
-        padding: 0%;
-        padding-left: 20px;
-        padding-right: 20px;
-        /* margin-left: 0%; */
-    }
-    /* Atur jumlah card per baris menjadi 4 */
-    .row-cols-sm-4 {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    /* Atur ukuran gambar dalam card */
-    .card-img-top {
-        min-height: 200px;
-        max-height: 200px;
-    }
-
-    /* Atur layout isi card */
-    #isiCard {
-        padding: 10px;
-        min-height: 70px;
-    }
-
-    /* Atur font-size dan ukuran struktur lainnya */
-    #katalog h5 {
-        font-size: 18px;
-    }
-
-    #katalog h6 {
-        font-size: 17px;
-    }
-
-    #katalog p {
-        font-size: 12px;
-    }
-}

@@ -13,15 +13,15 @@ use App\Http\Controllers\FirebaseTestController;
 // Katalog | Tarik data semua produk
 Route::get('/', [Katalog::class, 'index'])->name('katalog');
 
+
 // Katalog | Searching Produk
 Route::get('/search', [Katalog::class, 'search'])->name('searchBox');
 
 // Katalog | Filter checkbox
 Route::get('/filter', [Katalog::class, 'filter'])->name('filter');
-// Route::get('/searchFilter', [Katalog::class, 'searchFilter'])->name('searchFilter');
 
-// Katalog | Searching Searchbox
-// Route::get('/searchBox', [Katalog::class, 'search'])->name('searchBox');
+// Katalog | Load More
+
 
 // Detail Produk
 Route::get('/detail/{id}', [Katalog::class, 'detailPage'])->name('detail');
